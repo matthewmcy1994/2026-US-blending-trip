@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 December California Blending Trip & Conference</title>
+<title>2026 December California Blending Trip &amp; Conference</title>
 <style>
   :root {
     --bg: #f8fafc;
@@ -399,16 +398,88 @@
     border-top: 1px solid var(--border);
     background: var(--surface);
   }
+
+  .photo-gallery {
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .photo-gallery h4 { margin: 0 0 0.7rem; color: var(--primary); }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+  .photo-slot {
+    min-width: 0;
+    margin: 0;
+    padding: 0.55rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .photo-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #f1f5f9;
+    border: 1px dashed #94a3b8;
+    border-radius: 7px;
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-add {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100% - 1rem);
+    padding: 0.45rem 0.7rem;
+    color: #fff;
+    background: #0f172a;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .photo-slot.has-photo .photo-add {
+    left: auto;
+    top: auto;
+    right: 0.45rem;
+    bottom: 0.45rem;
+    transform: none;
+    background: rgba(15, 23, 42, 0.88);
+  }
+  .photo-location {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text);
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+  .photo-remove {
+    margin-top: 0.3rem;
+    padding: 0;
+    color: var(--text-muted);
+    background: transparent;
+    border: 0;
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+  .photo-input { display: none; }
+
 </style>
-</head>
+<style type="text/css" id="szoomstyle">.stefanvdstopscrolling{height:100%!important;overflow:hidden!important}</style></head>
 <body>
 
 
 <div id="editToolbar" style="background:#0f172a; color:#f8fafc; padding:0.65rem 1.25rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.75rem; border-bottom:1px solid #1e293b; font-size:0.86rem;">
   <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
     <strong style="color:#38bdf8;">✏️ Editor Mode:</strong>
-    <button id="toggleEditBtn" onclick="toggleEditMode()" style="background:#0284c7; color:#fff; border:none; padding:0.35rem 0.85rem; border-radius:6px; font-weight:700; cursor:pointer;">Enable Editing</button>
-    <span id="editStatusText" style="color:#cbd5e1;">Viewing mode (click "Enable Editing" to edit text directly on the page)</span>
+    <button id="toggleEditBtn" onclick="toggleEditMode()" style="background: rgb(22, 163, 74); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 0.35rem 0.85rem; border-radius: 6px; font-weight: 700; cursor: pointer;">Done Editing</button>
+    <span id="editStatusText" style="color:#cbd5e1;">Editing ON — click any text, schedule item, table cell, or note to edit directly.</span>
   </div>
   <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
     <button onclick="saveChangesToBrowser()" style="background:#0d9488; color:#fff; border:none; padding:0.35rem 0.75rem; border-radius:6px; font-weight:600; cursor:pointer;">Save Draft (Browser)</button>
@@ -424,28 +495,28 @@
       <span class="hero-badge">Southern California &amp; Sequoia NP</span>
       <span class="hero-badge">LSM Semiannual Training (Anaheim)</span>
     </div>
-    <h1>2026 California Blending Trip &amp; Conference</h1>
-    <p class="subtitle">Complete itinerary, flight &amp; vehicle logistics, accommodation matrix, budget breakdown, team directory, and interactive packing checklist.</p>
+    <h1 style="">2026 California Blending Trip &amp; Conference</h1>
+    <p class="subtitle" style="">Complete itinerary, flight &amp; vehicle logistics, accommodation matrix, budget breakdown, team directory, and interactive packing checklist.</p>
     <div class="quick-stats">
       <div class="stat-card">
-        <span class="stat-val">20 Days</span>
-        <span class="stat-lbl">Dec 9 – Dec 29, 2026</span>
+        <span class="stat-val" style="">20 Days</span>
+        <span class="stat-lbl" style="">Dec 9 – Dec 29, 2026</span>
       </div>
       <div class="stat-card">
-        <span class="stat-val">14 Saints</span>
-        <span class="stat-lbl">Core Travel Group</span>
+        <span class="stat-val" style="">13 Saints</span>
+        <span class="stat-lbl" style="">Core Travel Group</span>
       </div>
       <div class="stat-card">
-        <span class="stat-val">2 Vehicles</span>
-        <span class="stat-lbl">12-Seater Transit + Wrangler</span>
+        <span class="stat-val" style="">2 Vehicles</span>
+        <span class="stat-lbl" style="">12-Seater Transit + Wrangler</span>
       </div>
       <div class="stat-card">
-        <span class="stat-val">NZD $952.14</span>
-        <span class="stat-lbl">Group Fund / Person</span>
+        <span class="stat-val" style="">NZD $952.14</span>
+        <span class="stat-lbl" style="">Group Fund / Person</span>
       </div>
       <div class="stat-card">
-        <span class="stat-val">NZD $1,000</span>
-        <span class="stat-lbl">Rec. Pocket Money</span>
+        <span class="stat-val" style="">NZD $1,000</span>
+        <span class="stat-lbl" style="">Rec. Pocket Money</span>
       </div>
     </div>
   </div>
@@ -453,9 +524,9 @@
 
 <nav class="tabs-bar">
   <div class="tabs-inner">
-    <button class="tab-btn active" onclick="openTab('schedule', this)">📅 Daily Schedule</button>
+    <button class="tab-btn" onclick="openTab('schedule', this)">📅 Daily Schedule</button>
     <button class="tab-btn" onclick="openTab('flights', this)">✈️ Flights &amp; Weather</button>
-    <button class="tab-btn" onclick="openTab('stay', this)">🏠 Accommodation &amp; Fleet</button>
+    <button class="tab-btn active" onclick="openTab('stay', this)">🏠 Accommodation &amp; Fleet</button>
     <button class="tab-btn" onclick="openTab('budget', this)">💰 Budget &amp; Food</button>
     <button class="tab-btn" onclick="openTab('team', this)">👥 Team, Roles &amp; Health</button>
     <button class="tab-btn" onclick="openTab('prep', this)">🎒 Packing &amp; Tasks</button>
@@ -465,12 +536,12 @@
 <main class="container">
 
   <!-- TAB 1: DAILY SCHEDULE -->
-  <section id="schedule" class="tab-panel active">
+  <section id="schedule" class="tab-panel">
     <div class="section-header">
-      <h2>Day-by-Day Itinerary &amp; Special Events</h2>
+      <h2 style="">Day-by-Day Itinerary &amp; Special Events</h2>
       <div class="filter-pills">
-        <button class="pill active" onclick="filterDays('all', this)">All Days (Dec 10–29)</button>
-        <button class="pill" onclick="filterDays('sd', this)">San Diego / Vista (Dec 10–12)</button>
+        <button class="pill" onclick="filterDays('all', this)">All Days (Dec 10–29)</button>
+        <button class="pill active" onclick="filterDays('sd', this)">San Diego / Vista (Dec 10–12)</button>
         <button class="pill" onclick="filterDays('la', this)">Los Angeles / UCLA (Dec 13–15)</button>
         <button class="pill" onclick="filterDays('seq', this)">Sequoia NP (Dec 16–18)</button>
         <button class="pill" onclick="filterDays('train', this)">Cerritos &amp; Training (Dec 18–29)</button>
@@ -479,7 +550,7 @@
 
     <div class="grid-2">
       <div class="card">
-        <h3>🐬 SeaWorld Schedule <span class="tag tag-loc">Fri 11 Dec</span></h3>
+        <h3 style="">🐬 SeaWorld Schedule <span class="tag tag-loc">Fri 11 Dec</span></h3>
         <table>
           <thead><tr><th>Time</th><th>Show / Activity</th><th>Location</th></tr></thead>
           <tbody>
@@ -489,14 +560,14 @@
             <tr><td><strong>11:30 AM</strong></td><td>Sea Lion Presentation</td><td>Sea Lion Point</td></tr>
           </tbody>
         </table>
-        <p style="font-size:0.84rem; color:var(--text-muted); margin-top:0.65rem;">
+        <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.65rem;">
           <strong>Dining Options:</strong> Explorer Cafe, Hibisco Mexican Tacos, Calypso Bay Smokehouse, Shipwreck Reef Cafe, Manta Pizza, The Chicken Snack Shack, Funnel Cake.
         </p>
       </div>
 
       <div class="card">
-        <h3>🏀 Lakers Game Roster <span class="tag tag-special">Mon 14 Dec · 7:00 PM</span></h3>
-        <p style="font-size:0.88rem; margin-bottom:0.65rem;"><strong>Venue:</strong> Crypto.com Arena, Los Angeles (Drop off by 4:00 PM after Grace Terrace)</p>
+        <h3 style="">🏀 Lakers Game Roster <span class="tag tag-special">Mon 14 Dec · 7:00 PM</span></h3>
+        <p style="font-size: 0.88rem; margin-bottom: 0.65rem;"><strong>Venue:</strong> Crypto.com Arena, Los Angeles (Drop off by 4:00 PM after Grace Terrace)</p>
         <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:0.8rem;">
           <span class="tag tag-loc">1. Thomas Chiang</span>
           <span class="tag tag-loc">2. Crystal Chiang</span>
@@ -506,7 +577,7 @@
           <span class="tag tag-loc">6. Ezekiel Sterling</span>
           <span class="tag tag-loc">7. Shermin Tan</span>
         </div>
-        <p style="font-size:0.84rem; color:var(--text-muted);">
+        <p style="font-size: 0.84rem; color: var(--text-muted);">
           <strong>Non-attendees (Henry, Grace, Caleb, Ezra, Enoch, Michelle):</strong> Dinner &amp; fellowship at Brother Stephen's house / optional Santa Monica Pier or batting cages.
         </p>
       </div>
@@ -514,9 +585,9 @@
 
     <div class="day-grid" id="itineraryList">
 
-      <div class="day-card" data-leg="sd">
+      <div class="day-card" data-leg="sd" style="display: block;">
         <div class="day-header">
-          <span class="day-title">Thu 10 Dec — Arrival at LAX, Acaciawood &amp; Drive to Vista</span>
+          <span class="day-title" style="">Thu 10 Dec — Arrival at LAX, Acaciawood &amp; Drive to Vista</span>
           <div class="day-tags">
             <span class="tag tag-loc">LAX → Anaheim → Vista</span>
             <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
@@ -527,31 +598,73 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>07:10 AM:</strong> Main NZ group (8) lands at LAX Terminal B (QF3157); meet Matthew Man arriving 07:55 AM (DAL88).</li>
-              <li><strong>10:00 AM:</strong> First group of 9 takes purple "Rental Car Shuttle" to 5251 W 98th St to pick up <strong>Ford Transit 12-seater</strong> (inspect &amp; video car before leaving).</li>
-              <li><strong>11:00 AM:</strong> Visit <strong>Acaciawood Preparatory Academy</strong> (Brian &amp; Branden meet group there from Anaheim).</li>
-              <li><strong>12:25 PM:</strong> Thomas &amp; Crystal arrive LAX Terminal 1 (from SFO), pick up <strong>Jeep Wrangler</strong>, meet group in Anaheim.</li>
-              <li><strong>03:00 PM:</strong> Depart Anaheim for Vista (~1h 30m, 75 mi); pick up snacks/dinner contribution on the way.</li>
-              <li><strong>Evening:</strong> Dinner with Vista saints &amp; drop off at hospitality families.</li>
+              <li style=""><strong>07:10 AM:</strong> Main NZ group (8) lands at LAX Terminal B (QF3157); meet Matthew Man arriving 07:55 AM (DAL88).</li>
+              <li style=""><strong>10:00 AM:</strong> First group of 9 takes purple "Rental Car Shuttle" to 5251 W 98th St to pick up <strong>Ford Transit 12-seater</strong> (inspect &amp; video car before leaving).</li>
+              <li style=""><strong>11:00 AM:</strong> Visit <strong>Acaciawood Preparatory Academy</strong> (Brian &amp; Branden meet group there from Anaheim).</li>
+              <li style=""><strong>12:25 PM:</strong> Thomas &amp; Crystal arrive LAX Terminal 1 (from SFO), pick up <strong>Jeep Wrangler</strong>, meet group in Anaheim.</li>
+              <li style=""><strong>03:00 PM:</strong> Depart Anaheim for Vista (~1h 30m, 75 mi); pick up snacks/dinner contribution on the way.</li>
+              <li style=""><strong>Evening:</strong> Dinner with Vista saints &amp; drop off at hospitality families.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Use bathroom before leaving LAX terminal.<br>
               • First group of 9: Henry, Grace, Caleb, Ezra, Ezekiel, Enoch, Shermin, Tim, Matthew.<br>
               • Optional stops en route: La Jolla Cove &amp; Beach, Outlets at San Clemente.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Ford Transit NZD$3,383 (paid by Henry); Jeep Wrangler NZD$1,072 (paid by Thomas); Petrol ~USD$28 (NZD$50); Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-01-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Los Angeles International Airport (LAX)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Los Angeles International Airport (LAX)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Los Angeles International Airport (LAX)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-01-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Acaciawood Preparatory Academy" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Acaciawood Preparatory Academy</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Acaciawood Preparatory Academy" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-01-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Anaheim" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Anaheim</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Anaheim" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-01-04">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Vista / San Marcos" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Vista / San Marcos</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Vista / San Marcos" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="sd">
+      <div class="day-card" data-leg="sd" style="display: block;">
         <div class="day-header">
-          <span class="day-title">Fri 11 Dec — San Diego SeaWorld &amp; UCSD College Blending</span>
+          <span class="day-title" style="">Fri 11 Dec — San Diego SeaWorld &amp; UCSD College Blending</span>
           <div class="day-tags">
             <span class="tag tag-loc">San Diego / Vista</span>
             <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
@@ -561,27 +674,60 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Before 09:00 AM:</strong> Pick up from hospitality families (breakfast at hospitality).</li>
-              <li><strong>10:00 AM – 05:00 PM:</strong> San Diego SeaWorld (see show schedule above; use group food pass).</li>
-              <li><strong>Evening:</strong> Head back to Vista for dinner &amp; blending meeting with UCSD college-age saints.</li>
+              <li style=""><strong>Before 09:00 AM:</strong> Pick up from hospitality families (breakfast at hospitality).</li>
+              <li style=""><strong>10:00 AM – 05:00 PM:</strong> San Diego SeaWorld (see show schedule above; use group food pass).</li>
+              <li style=""><strong>Evening:</strong> Head back to Vista for dinner &amp; blending meeting with UCSD college-age saints.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Pack disposable rain ponchos for splash zones.<br>
               • Confirm food pass redemption upon entry.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> SeaWorld admission NZD$106–$175 (USD$60+), Parking NZD$61 (USD$35) (Alt: San Diego Zoo NZD$133 / Parking NZD$30); Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-02-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of SeaWorld San Diego" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">SeaWorld San Diego</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for SeaWorld San Diego" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-02-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of UCSD" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">UCSD</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for UCSD" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-02-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Vista / San Marcos" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Vista / San Marcos</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Vista / San Marcos" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="sd">
+      <div class="day-card" data-leg="sd" style="display: block;">
         <div class="day-header">
-          <span class="day-title">Sat 12 Dec — Little Italy, USS Midway, Balboa Park &amp; UCSD</span>
+          <span class="day-title" style="">Sat 12 Dec — Little Italy, USS Midway, Balboa Park &amp; UCSD</span>
           <div class="day-tags">
             <span class="tag tag-loc">San Diego</span>
             <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
@@ -591,29 +737,71 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Before 09:00 AM:</strong> Pick up from hospitality families.</li>
-              <li><strong>10:00 AM:</strong> Little Italy Farmers Market (open 8 AM – 2 PM Saturdays) &amp; lunch.</li>
-              <li><strong>01:00 PM:</strong> Visit USS Midway Museum or Seaport Village / Tuna Harbor Park.</li>
-              <li><strong>Afternoon:</strong> Balboa Park exploration &amp; museums.</li>
-              <li><strong>Evening:</strong> Return to Vista for dinner &amp; meeting with UCSD saints (last day of UCSD finals).</li>
+              <li style=""><strong>Before 09:00 AM:</strong> Pick up from hospitality families.</li>
+              <li style=""><strong>10:00 AM:</strong> Little Italy Farmers Market (open 8 AM – 2 PM Saturdays) &amp; lunch.</li>
+              <li style=""><strong>01:00 PM:</strong> Visit USS Midway Museum or Seaport Village / Tuna Harbor Park.</li>
+              <li style=""><strong>Afternoon:</strong> Balboa Park exploration &amp; museums.</li>
+              <li style=""><strong>Evening:</strong> Return to Vista for dinner &amp; meeting with UCSD saints (last day of UCSD finals).</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Balboa Park options: Organ concert, House of Pacific Relations, Puppet Theatre ($7), Fleet Science ($30), Air &amp; Space ($30), Model Railroad ($20), Auto Museum ($20), Natural History ($15).<br>
               • Nearby Midway: Maritime Museum, Fish Market.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Balboa Park Parkwise Pass NZD$137.54 (USD$78) or single museums; USS Midway NZD$70 (USD$39 online special); Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-03-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Little Italy Farmers Market" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Little Italy Farmers Market</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Little Italy Farmers Market" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-03-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of USS Midway Museum / Seaport Village" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">USS Midway Museum / Seaport Village</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for USS Midway Museum / Seaport Village" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-03-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Balboa Park" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Balboa Park</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Balboa Park" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-03-04">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of UCSD" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">UCSD</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for UCSD" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="la">
+      <div class="day-card" data-leg="la" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Sun 13 Dec — Vista Lord's Table, Irvine Spectrum &amp; Move to UCLA</span>
+          <span class="day-title" style="">Sun 13 Dec — Vista Lord's Table, Irvine Spectrum &amp; Move to UCLA</span>
           <div class="day-tags">
             <span class="tag tag-loc">Vista → Irvine → LA (UCLA)</span>
             <span class="tag tag-stay">Stay: UCLA Hospitality</span>
@@ -623,28 +811,61 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>10:00 AM – 12:00 PM:</strong> Lord's Table at the Church in Vista &amp; San Marcos, followed by Love Feast lunch.</li>
-              <li><strong>01:30 PM:</strong> Depart Vista northbound toward Los Angeles (2 hrs, 105 miles).</li>
-              <li><strong>03:00 PM – 06:00 PM:</strong> Stop at Irvine Spectrum Center (outdoor ice skating 2:00–9:30 PM, shopping, dinner).</li>
-              <li><strong>07:00 PM:</strong> Arrive in UCLA area &amp; drop off at hospitality families.</li>
+              <li style=""><strong>10:00 AM – 12:00 PM:</strong> Lord's Table at the Church in Vista &amp; San Marcos, followed by Love Feast lunch.</li>
+              <li style=""><strong>01:30 PM:</strong> Depart Vista northbound toward Los Angeles (2 hrs, 105 miles).</li>
+              <li style=""><strong>03:00 PM – 06:00 PM:</strong> Stop at Irvine Spectrum Center (outdoor ice skating 2:00–9:30 PM, shopping, dinner).</li>
+              <li style=""><strong>07:00 PM:</strong> Arrive in UCLA area &amp; drop off at hospitality families.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • <strong>Vista Meeting Hall:</strong> 150-B Hannalei Dr., Vista, CA 92083.<br>
               • Optional stop en route: San Clemente.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Irvine Spectrum Ice Skating USD$27 (NZD$49.23 incl. skate hire); Petrol; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-04-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Church in Vista &amp; San Marcos" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Church in Vista &amp; San Marcos</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Church in Vista &amp; San Marcos" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-04-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Irvine Spectrum Center" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Irvine Spectrum Center</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Irvine Spectrum Center" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-04-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of UCLA" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">UCLA</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for UCLA" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="la">
+      <div class="day-card" data-leg="la" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Mon 14 Dec — LA Museums, Grace Terrace, Lakers Game &amp; Fellowship</span>
+          <span class="day-title" style="">Mon 14 Dec — LA Museums, Grace Terrace, Lakers Game &amp; Fellowship</span>
           <div class="day-tags">
             <span class="tag tag-loc">Los Angeles / UCLA</span>
             <span class="tag tag-stay">Stay: UCLA Hospitality</span>
@@ -654,28 +875,70 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>10:00 AM – 12:00 PM:</strong> Exposition Park: Lucas Museum of Narrative Art / California Science Center / Samuel Oschin Air &amp; Space Center.</li>
-              <li><strong>12:30 PM – 01:30 PM:</strong> Lunch at Mercado La Paloma.</li>
-              <li><strong>02:00 PM – 04:00 PM:</strong> Grace Terrace; depart by 4:00 PM for Crypto.com Arena.</li>
-              <li><strong>Evening Split:</strong> 7 saints attend 7:00 PM Lakers Game; remaining 7 enjoy dinner &amp; fellowship at Brother Stephen's house (or Santa Monica Pier / batting cages).</li>
+              <li style=""><strong>10:00 AM – 12:00 PM:</strong> Exposition Park: Lucas Museum of Narrative Art / California Science Center / Samuel Oschin Air &amp; Space Center.</li>
+              <li style=""><strong>12:30 PM – 01:30 PM:</strong> Lunch at Mercado La Paloma.</li>
+              <li style=""><strong>02:00 PM – 04:00 PM:</strong> Grace Terrace; depart by 4:00 PM for Crypto.com Arena.</li>
+              <li style=""><strong>Evening Split:</strong> 7 saints attend 7:00 PM Lakers Game; remaining 7 enjoy dinner &amp; fellowship at Brother Stephen's house (or Santa Monica Pier / batting cages).</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Note: Griffith Observatory main building is closed on Mondays.<br>
               • Santa Monica options: Boardwalk, 3rd St Promenade, 22-mi beach bike trail, Baseball Central batting cages.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> CA Science Center (Free); Natural History Museum USD$25 student / $32 adult; Museum of Illusions USD$20–$35; Bike hire USD$25–$70/day; Lakers tickets USD$60+.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-05-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Exposition Park museums" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Exposition Park museums</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Exposition Park museums" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-05-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Mercado La Paloma" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Mercado La Paloma</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Mercado La Paloma" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-05-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Crypto.com Arena (Lakers game)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Crypto.com Arena (Lakers game)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Crypto.com Arena (Lakers game)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-05-04">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Brother Stephen’s house / Santa Monica Pier" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Brother Stephen’s house / Santa Monica Pier</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Brother Stephen’s house / Santa Monica Pier" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="la">
+      <div class="day-card" data-leg="la" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Tue 15 Dec — UCLA Campus, Getty Center &amp; Prayer Meeting</span>
+          <span class="day-title" style="">Tue 15 Dec — UCLA Campus, Getty Center &amp; Prayer Meeting</span>
           <div class="day-tags">
             <span class="tag tag-loc">UCLA / West LA</span>
             <span class="tag tag-stay">Stay: UCLA Hospitality</span>
@@ -685,26 +948,59 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Morning:</strong> UCLA campus walking tour &amp; lunch around Westwood/UCLA.</li>
-              <li><strong>Afternoon:</strong> Visit The Getty Center (take tram from carpark; view medieval biblical manuscripts &amp; illumination exhibit).</li>
-              <li><strong>Evening:</strong> Dinner with saints &amp; church prayer meeting.</li>
+              <li style=""><strong>Morning:</strong> UCLA campus walking tour &amp; lunch around Westwood/UCLA.</li>
+              <li style=""><strong>Afternoon:</strong> Visit The Getty Center (take tram from carpark; view medieval biblical manuscripts &amp; illumination exhibit).</li>
+              <li style=""><strong>Evening:</strong> Dinner with saints &amp; church prayer meeting.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Alternative theme park options noted in plan: Disneyland (USD$190) or Knott's Berry Farm.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Getty Center admission free (parking fee applies); Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-06-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of UCLA Campus / Westwood" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">UCLA Campus / Westwood</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for UCLA Campus / Westwood" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-06-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Getty Center" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Getty Center</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Getty Center" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-06-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Church prayer meeting" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Church prayer meeting</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Church prayer meeting" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="seq">
+      <div class="day-card" data-leg="seq" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Wed 16 Dec — Drive to Sequoia National Park &amp; White Castle Check-In</span>
+          <span class="day-title" style="">Wed 16 Dec — Drive to Sequoia National Park &amp; White Castle Check-In</span>
           <div class="day-tags">
             <span class="tag tag-loc">LA → Bakersfield → Three Rivers</span>
             <span class="tag tag-stay">Stay: White Castle Airbnb</span>
@@ -715,29 +1011,71 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Before 09:00 AM:</strong> Depart LA northbound (197 miles, ~3.5 hrs via toll road).</li>
-              <li><strong>Mid-Morning:</strong> Stretch &amp; restroom stop in Bakersfield.</li>
-              <li><strong>Midday:</strong> Grocery shopping in Visalia (2 breakfasts, 1 lunch, 2 dinners, hiking snacks) &amp; <strong>fill fuel at Three Rivers</strong>.</li>
-              <li><strong>Afternoon:</strong> Check in at White Castle Airbnb; enter Sequoia NP if weather/road conditions permit.</li>
-              <li><strong>Evening:</strong> Dinner cooking team, Laundry Day, and Uncle Henry's story time by the fireplace.</li>
+              <li style=""><strong>Before 09:00 AM:</strong> Depart LA northbound (197 miles, ~3.5 hrs via toll road).</li>
+              <li style=""><strong>Mid-Morning:</strong> Stretch &amp; restroom stop in Bakersfield.</li>
+              <li style=""><strong>Midday:</strong> Grocery shopping in Visalia (2 breakfasts, 1 lunch, 2 dinners, hiking snacks) &amp; <strong>fill fuel at Three Rivers</strong>.</li>
+              <li style=""><strong>Afternoon:</strong> Check in at White Castle Airbnb; enter Sequoia NP if weather/road conditions permit.</li>
+              <li style=""><strong>Evening:</strong> Dinner cooking team, Laundry Day, and Uncle Henry's story time by the fireplace.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • <strong>Airbnb Address:</strong> 43574 Dinely Dr, Three Rivers, CA 93271 (sleeps 16, 4 bed / 2.5 bath, laundry, BBQ, 8 min from Ash Mountain entrance on Kaweah River).<br>
               • MUST fill petrol before entering park &amp; carry snow chains.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> White Castle 2 nights NZD$1,881.67 (deposit $376.34 paid 3 Sep by Grace); Groceries, Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-07-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Bakersfield" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Bakersfield</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Bakersfield" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-07-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Visalia" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Visalia</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Visalia" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-07-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Three Rivers / White Castle Airbnb" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Three Rivers / White Castle Airbnb</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Three Rivers / White Castle Airbnb" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-07-04">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Sequoia National Park" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Sequoia National Park</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Sequoia National Park" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="seq">
+      <div class="day-card" data-leg="seq" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Thu 17 Dec — Full Hiking Day in Sequoia &amp; Kings Canyon</span>
+          <span class="day-title" style="">Thu 17 Dec — Full Hiking Day in Sequoia &amp; Kings Canyon</span>
           <div class="day-tags">
             <span class="tag tag-loc">Sequoia &amp; Kings Canyon NP</span>
             <span class="tag tag-stay">Stay: White Castle Airbnb</span>
@@ -748,28 +1086,52 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Morning:</strong> Pack lunches &amp; enter park early with 2 National Park pass holders split across the 2 vehicles.</li>
-              <li><strong>Sequoia Highlights:</strong> Ash Mountain, Foothills Visitor Center, Giant Forest Museum, General Sherman Tree, Congress Trail, Moro Rock, Tunnel Log, Crescent Meadow, Tokopah Falls, Beetle Rock.</li>
-              <li><strong>Kings Canyon Option:</strong> Big Stump, Grant Grove, Boyden Cavern, Zumwalt Meadow, Mist Falls.</li>
-              <li><strong>Evening:</strong> Group dinner prep, laundry, and fireplace story time (HSFY results released in NZ on Dec 18 NZT).</li>
+              <li style=""><strong>Morning:</strong> Pack lunches &amp; enter park early with 2 National Park pass holders split across the 2 vehicles.</li>
+              <li style=""><strong>Sequoia Highlights:</strong> Ash Mountain, Foothills Visitor Center, Giant Forest Museum, General Sherman Tree, Congress Trail, Moro Rock, Tunnel Log, Crescent Meadow, Tokopah Falls, Beetle Rock.</li>
+              <li style=""><strong>Kings Canyon Option:</strong> Big Stump, Grant Grove, Boyden Cavern, Zumwalt Meadow, Mist Falls.</li>
+              <li style=""><strong>Evening:</strong> Group dinner prep, laundry, and fireplace story time (HSFY results released in NZ on Dec 18 NZT).</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Download offline Gaia GPS / AllTrails maps beforehand.<br>
               • Dress in thermal base layers, down puffer jacket, waterproof outer, wool socks &amp; hiking boots (temps -5°C to 8°C).
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> 2× America the Beautiful Annual Passes (USD$250 each / NZD$893–$912 total); Optional snowshoe tour USD$150/hr per group of 8.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-08-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Sequoia National Park" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Sequoia National Park</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Sequoia National Park" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-08-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Kings Canyon National Park" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Kings Canyon National Park</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Kings Canyon National Park" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="seq train">
+      <div class="day-card" data-leg="seq train" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Fri 18 Dec — Return to LA (Cerritos) &amp; Home Meeting</span>
+          <span class="day-title" style="">Fri 18 Dec — Return to LA (Cerritos) &amp; Home Meeting</span>
           <div class="day-tags">
             <span class="tag tag-loc">Three Rivers → Bakersfield → Cerritos</span>
             <span class="tag tag-stay">Stay: Cerritos Hall (Bros) / Hospitality (Sis)</span>
@@ -779,28 +1141,52 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Before 11:00 AM:</strong> Check out of White Castle Airbnb &amp; depart southbound (240 miles, 4–7 hrs depending on Friday LA traffic).</li>
-              <li><strong>Lunch:</strong> Stop at The Park at River Walk in Bakersfield (optional stop: Outlets at Tejon).</li>
-              <li><strong>07:00 PM:</strong> Home meeting in Cerritos (Children's meeting split into 2 Chinese groups &amp; 5 English groups; Henry serves Chinese children).</li>
-              <li><strong>Night:</strong> Drop sisters at Cerritos hospitality families; brothers sleep at Cerritos Meeting Hall (bedding provided).</li>
+              <li style=""><strong>Before 11:00 AM:</strong> Check out of White Castle Airbnb &amp; depart southbound (240 miles, 4–7 hrs depending on Friday LA traffic).</li>
+              <li style=""><strong>Lunch:</strong> Stop at The Park at River Walk in Bakersfield (optional stop: Outlets at Tejon).</li>
+              <li style=""><strong>07:00 PM:</strong> Home meeting in Cerritos (Children's meeting split into 2 Chinese groups &amp; 5 English groups; Henry serves Chinese children).</li>
+              <li style=""><strong>Night:</strong> Drop sisters at Cerritos hospitality families; brothers sleep at Cerritos Meeting Hall (bedding provided).</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • <strong>Cerritos Meeting Hall:</strong> 12061 Del Amo Blvd, Cerritos, CA 90703.<br>
               • Laundry Day available.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Petrol, Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-09-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of The Park at River Walk (Bakersfield)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">The Park at River Walk (Bakersfield)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for The Park at River Walk (Bakersfield)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-09-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Cerritos Meeting Hall" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Cerritos Meeting Hall</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Cerritos Meeting Hall" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="train">
+      <div class="day-card" data-leg="train" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Sat 19 Dec — FTTA Graduation &amp; Blending with Singapore Saints</span>
+          <span class="day-title" style="">Sat 19 Dec — FTTA Graduation &amp; Blending with Singapore Saints</span>
           <div class="day-tags">
             <span class="tag tag-loc">Anaheim &amp; Cerritos</span>
             <span class="tag tag-stay">Stay: Cerritos Hall / Hospitality</span>
@@ -810,26 +1196,59 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Morning:</strong> Breakfast at meeting hall; attend <strong>FTTA Graduation</strong> in Anaheim (09:30 AM – 11:00 AM).</li>
-              <li><strong>Lunch:</strong> Anaheim Packing House or The Outlets at Orange.</li>
-              <li><strong>Evening:</strong> Dinner &amp; blending fellowship with visiting saints from Singapore at Cerritos Meeting Hall.</li>
+              <li style=""><strong>Morning:</strong> Breakfast at meeting hall; attend <strong>FTTA Graduation</strong> in Anaheim (09:30 AM – 11:00 AM).</li>
+              <li style=""><strong>Lunch:</strong> Anaheim Packing House or The Outlets at Orange.</li>
+              <li style=""><strong>Evening:</strong> Dinner &amp; blending fellowship with visiting saints from Singapore at Cerritos Meeting Hall.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Rest, do laundry, and prepare spiritually/practically for the Semiannual Training starting Monday.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Lunch &amp; Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-10-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of FTTA Graduation (Anaheim)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">FTTA Graduation (Anaheim)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for FTTA Graduation (Anaheim)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-10-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Anaheim Packing House / Outlets at Orange" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Anaheim Packing House / Outlets at Orange</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Anaheim Packing House / Outlets at Orange" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-10-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Cerritos Meeting Hall" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Cerritos Meeting Hall</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Cerritos Meeting Hall" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="train">
+      <div class="day-card" data-leg="train" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Sun 20 Dec – Sat 26 Dec — LSM Semiannual Training Week</span>
+          <span class="day-title" style="">Sun 20 Dec – Sat 26 Dec — LSM Semiannual Training Week</span>
           <div class="day-tags">
             <span class="tag tag-loc">Cerritos &amp; Anaheim (Grace Garden)</span>
             <span class="tag tag-stay">Stay: Grace Gardens / Cerritos Hospitality</span>
@@ -839,27 +1258,51 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Sun 20 Dec:</strong> Breakfast at hall, Lord's Table &amp; Love Feast at Church in Cerritos (reports from localities). Trainees check into <strong>Grace Gardens</strong>; Henry, Grace &amp; Michelle move to Cerritos hospitality families.</li>
-              <li><strong>Mon 21 Dec:</strong> Return <strong>Jeep Wrangler before 1:30 PM</strong>. Semiannual Training begins in the afternoon.</li>
-              <li><strong>Tue 22 Dec – Sat 26 Dec:</strong> Full-day Semiannual Training sessions in Anaheim.</li>
+              <li style=""><strong>Sun 20 Dec:</strong> Breakfast at hall, Lord's Table &amp; Love Feast at Church in Cerritos (reports from localities). Trainees check into <strong>Grace Gardens</strong>; Henry, Grace &amp; Michelle move to Cerritos hospitality families.</li>
+              <li style=""><strong>Mon 21 Dec:</strong> Return <strong>Jeep Wrangler before 1:30 PM</strong>. Semiannual Training begins in the afternoon.</li>
+              <li style=""><strong>Tue 22 Dec – Sat 26 Dec:</strong> Full-day Semiannual Training sessions in Anaheim.</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Ford Transit remains with Henry, Grace &amp; Michelle for daily Cerritos–Anaheim commutes.<br>
               • Lunches covered during training love feasts; budget USD$25/day for dinners.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Training registration USD$205 (NZD$365–$374, paid in Oct); Dinners ~USD$25/day.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-11-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Cerritos / Grace Gardens" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Cerritos / Grace Gardens</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Cerritos / Grace Gardens" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-11-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of LSM Semiannual Training (Anaheim)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">LSM Semiannual Training (Anaheim)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for LSM Semiannual Training (Anaheim)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
-      <div class="day-card" data-leg="train">
+      <div class="day-card" data-leg="train" style="display: none;">
         <div class="day-header">
-          <span class="day-title">Sun 27 Dec – Tue 29 Dec — Final Lord's Table, LAX Departure &amp; NZ Arrival</span>
+          <span class="day-title" style="">Sun 27 Dec – Tue 29 Dec — Final Lord's Table, LAX Departure &amp; NZ Arrival</span>
           <div class="day-tags">
             <span class="tag tag-loc">Anaheim → LAX → AKL / HKG / KUL</span>
             <span class="tag tag-stay">Homeward Bound</span>
@@ -869,25 +1312,67 @@
           <div class="day-col">
             <h4>Activities &amp; Flow</h4>
             <ul>
-              <li><strong>Sun 27 Dec Morning:</strong> Lord's Table in Anaheim; last-minute shopping at Outlets at Orange &amp; Trader Joe's.</li>
-              <li><strong>05:30 PM:</strong> Depart for LAX in Ford Transit (9 passengers); refuel van and return to rental center.</li>
-              <li><strong>22:00 – 23:50 PM:</strong> Depart LAX (Shermin KE012 at 22:00; NZ group QF3194 at 23:35; Matthew DAL87 at 23:50).</li>
-              <li><strong>Mon 28 Dec:</strong> In flight across International Date Line.</li>
-              <li><strong>Tue 29 Dec:</strong> Land in Auckland at 09:55 AM (QF3194).</li>
+              <li style=""><strong>Sun 27 Dec Morning:</strong> Lord's Table in Anaheim; last-minute shopping at Outlets at Orange &amp; Trader Joe's.</li>
+              <li style=""><strong>05:30 PM:</strong> Depart for LAX in Ford Transit (9 passengers); refuel van and return to rental center.</li>
+              <li style=""><strong>22:00 – 23:50 PM:</strong> Depart LAX (Shermin KE012 at 22:00; NZ group QF3194 at 23:35; Matthew DAL87 at 23:50).</li>
+              <li style=""><strong>Mon 28 Dec:</strong> In flight across International Date Line.</li>
+              <li style=""><strong>Tue 29 Dec:</strong> Land in Auckland at 09:55 AM (QF3194).</li>
             </ul>
           </div>
           <div class="day-col">
             <h4>Logistics, Notes &amp; Costs</h4>
-            <div class="notes-box">
+            <div class="notes-box" style="">
               • Thomas, Crystal &amp; Lindsay arrange separate transport.<br>
               • Brian &amp; Branden stay at 1032 N Doria St, Anaheim (Dec 27–29) before flying DL0065 on Dec 29.
             </div>
-            <div class="cost-strip">
+            <div class="cost-strip" style="">
               <strong>Costs:</strong> Final fuel fill-up, Lunch &amp; Airport Dinner.
             </div>
           </div>
         </div>
-      </div>
+      
+        <div class="photo-gallery">
+          <h4>📷 Location Photos</h4>
+          <div class="photo-grid">
+        <figure class="photo-slot" data-photo-id="location-photo-12-01">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Church in Anaheim" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Church in Anaheim</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Church in Anaheim" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-12-02">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Outlets at Orange / Trader Joe’s" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Outlets at Orange / Trader Joe’s</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Outlets at Orange / Trader Joe’s" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-12-03">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Los Angeles International Airport (LAX)" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Los Angeles International Airport (LAX)</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Los Angeles International Airport (LAX)" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+        <figure class="photo-slot" data-photo-id="location-photo-12-04">
+          <div class="photo-frame">
+            <img class="photo-preview" alt="Photo of Auckland, New Zealand" hidden>
+            <button type="button" class="photo-add" onclick="this.closest('.photo-slot').querySelector('.photo-input').click()">Add photo</button>
+          </div>
+          <figcaption class="photo-location">Auckland, New Zealand</figcaption>
+          <input class="photo-input" type="file" accept="image/*" aria-label="Choose a photo for Auckland, New Zealand" onchange="loadLocationPhoto(this)">
+          <button type="button" class="photo-remove" onclick="removeLocationPhoto(this)" hidden>Remove photo</button>
+        </figure>
+          </div>
+        </div>
+</div>
 
     </div>
   </section>
@@ -895,24 +1380,24 @@
   <!-- TAB 2: FLIGHTS & WEATHER -->
   <section id="flights" class="tab-panel">
     <div class="section-header">
-      <h2>Flight Matrix &amp; December Climate</h2>
+      <h2 style="">Flight Matrix &amp; December Climate</h2>
     </div>
 
     <div class="grid-3">
       <div class="card">
-        <h3>🌤️ San Diego (Dec 10–12)</h3>
-        <p style="font-size:1.5rem; font-weight:800; color:var(--primary);">9°C – 18°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(48°F – 64°F)</span></p>
-        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:0.35rem;">Crisp mornings, mild sunny afternoons. Bring light layers &amp; disposable ponchos for SeaWorld.</p>
+        <h3 style="">🌤️ San Diego (Dec 10–12)</h3>
+        <p style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">9°C – 18°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(48°F – 64°F)</span></p>
+        <p style="font-size: 0.86rem; color: var(--text-muted); margin-top: 0.35rem;">Crisp mornings, mild sunny afternoons. Bring light layers &amp; disposable ponchos for SeaWorld.</p>
       </div>
       <div class="card">
-        <h3>☀️ Los Angeles (Dec 13–15, 18–27)</h3>
-        <p style="font-size:1.5rem; font-weight:800; color:var(--primary);">8°C – 19°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(46°F – 66°F)</span></p>
-        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:0.35rem;">Cool evenings, pleasant daytime highs. Layer up for outdoor evening events and ice skating.</p>
+        <h3 style="">☀️ Los Angeles (Dec 13–15, 18–27)</h3>
+        <p style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">8°C – 19°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(46°F – 66°F)</span></p>
+        <p style="font-size: 0.86rem; color: var(--text-muted); margin-top: 0.35rem;">Cool evenings, pleasant daytime highs. Layer up for outdoor evening events and ice skating.</p>
       </div>
       <div class="card" style="border-color:#93c5fd; background:#eff6ff;">
-        <h3>❄️ Sequoia NP (Dec 16–18)</h3>
-        <p style="font-size:1.5rem; font-weight:800; color:#1d4ed8;">-5°C – 8°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(23°F – 46°F)</span></p>
-        <p style="font-size:0.86rem; color:#1e3a8a; margin-top:0.35rem;"><strong>Sub-zero freezing conditions!</strong> Snow chains, thermal base layers, puffer jacket &amp; waterproof boots mandatory.</p>
+        <h3 style="">❄️ Sequoia NP (Dec 16–18)</h3>
+        <p style="font-size: 1.5rem; font-weight: 800; color: rgb(29, 78, 216);">-5°C – 8°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(23°F – 46°F)</span></p>
+        <p style="font-size: 0.86rem; color: rgb(30, 58, 138); margin-top: 0.35rem;"><strong>Sub-zero freezing conditions!</strong> Snow chains, thermal base layers, puffer jacket &amp; waterproof boots mandatory.</p>
       </div>
     </div>
 
@@ -984,9 +1469,9 @@
   </section>
 
   <!-- TAB 3: ACCOMMODATION & FLEET -->
-  <section id="stay" class="tab-panel">
+  <section id="stay" class="tab-panel active">
     <div class="section-header">
-      <h2>Nightly Accommodation Matrix &amp; Vehicle Fleet</h2>
+      <h2 style="">Nightly Accommodation Matrix &amp; Vehicle Fleet</h2>
     </div>
 
     <div class="table-wrap">
@@ -1059,9 +1544,9 @@
 
     <div class="grid-2">
       <div class="card">
-        <h3>🚐 Primary Vehicle: Ford Transit 12-Seater <span class="status-yes">Booked (18 Days)</span></h3>
-        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (10:00 AM) – Sun 27 Dec (Evening at LAX)</p>
-        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Cost:</strong> NZD$3,383.00 (incl. insurance, prepaid by Henry Liu on 17 Oct)</p>
+        <h3 style="">🚐 Primary Vehicle: Ford Transit 12-Seater <span class="status-yes">Booked (18 Days)</span></h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (10:00 AM) – Sun 27 Dec (Evening at LAX)</p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Cost:</strong> NZD$3,383.00 (incl. insurance, prepaid by Henry Liu on 17 Oct)</p>
         <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
           <li><strong>Drivers:</strong> Henry Liu, Matthew Man, Thomas Chiang</li>
           <li><strong>Dec 10–20:</strong> Carries primary group across San Diego, LA, Sequoia &amp; Cerritos.</li>
@@ -1071,9 +1556,9 @@
       </div>
 
       <div class="card">
-        <h3>🚙 Support Vehicle: Jeep Wrangler 5-Seater <span class="status-yes">Booked (11 Days)</span></h3>
-        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (12:30 PM) – Mon 21 Dec (Before 1:30 PM)</p>
-        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Cost:</strong> NZD$1,072.00 (prepaid by Thomas Chiang on 4 Nov)</p>
+        <h3 style="">🚙 Support Vehicle: Jeep Wrangler 5-Seater <span class="status-yes">Booked (11 Days)</span></h3>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (12:30 PM) – Mon 21 Dec (Before 1:30 PM)</p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Cost:</strong> NZD$1,072.00 (prepaid by Thomas Chiang on 4 Nov)</p>
         <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
           <li><strong>Purpose:</strong> Luggage overflow &amp; split-group flexibility (especially Sequoia NP &amp; Lakers Game).</li>
           <li><strong>Sequoia Rule:</strong> Must carry one of the two National Park Annual Passes and snow chains.</li>
@@ -1086,13 +1571,13 @@
   <!-- TAB 4: BUDGET & FOOD -->
   <section id="budget" class="tab-panel">
     <div class="section-header">
-      <h2>Trip Budget &amp; Daily Food Plan</h2>
+      <h2 style="">Trip Budget &amp; Daily Food Plan</h2>
     </div>
 
     <div class="grid-3">
       <div class="card">
-        <h3>1️⃣ Pre-Trip Individual Costs</h3>
-        <p style="font-size:1.45rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">~NZD $487.00 <span style="font-size:0.8rem; font-weight:500;">(excl. flights/ins.)</span></p>
+        <h3 style="">1️⃣ Pre-Trip Individual Costs</h3>
+        <p style="font-size: 1.45rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem;">~NZD $487.00 <span style="font-size:0.8rem; font-weight:500;">(excl. flights/ins.)</span></p>
         <table>
           <tbody>
             <tr><td>ESTA Authorization</td><td><strong>NZD $72.00</strong> (USD $40.27)</td></tr>
@@ -1105,8 +1590,8 @@
       </div>
 
       <div class="card">
-        <h3>2️⃣ Shared Group Fund (14 Pax)</h3>
-        <p style="font-size:1.45rem; font-weight:800; color:var(--teal); margin-bottom:0.5rem;">NZD $952.14 / person <span style="font-size:0.8rem; font-weight:500;">($13,330 total)</span></p>
+        <h3 style="">2️⃣ Shared Group Fund (14 Pax)</h3>
+        <p style="font-size: 1.45rem; font-weight: 800; color: var(--teal); margin-bottom: 0.5rem;">NZD $952.14 / person <span style="font-size:0.8rem; font-weight:500;">($13,330 total)</span></p>
         <table>
           <tbody>
             <tr><td>Ford Transit (18d)</td><td><strong>NZD $3,383.00</strong> (Henry)</td></tr>
@@ -1122,8 +1607,8 @@
       </div>
 
       <div class="card">
-        <h3>3️⃣ Recommended Pocket Money</h3>
-        <p style="font-size:1.45rem; font-weight:800; color:var(--accent); margin-bottom:0.5rem;">NZD $1,000.00 / person</p>
+        <h3 style="">3️⃣ Recommended Pocket Money</h3>
+        <p style="font-size: 1.45rem; font-weight: 800; color: var(--accent); margin-bottom: 0.5rem;">NZD $1,000.00 / person</p>
         <table>
           <tbody>
             <tr><td>Daily Meals (18 days)</td><td><strong>NZD $700.00</strong> (~USD $520)</td></tr>
@@ -1192,11 +1677,11 @@
   <!-- TAB 5: TEAM, ROLES & HEALTH -->
   <section id="team" class="tab-panel">
     <div class="section-header">
-      <h2>Participant Directory, Assigned Roles &amp; Medical Alerts</h2>
+      <h2 style="">Participant Directory, Assigned Roles &amp; Medical Alerts</h2>
       <input type="text" class="search-input" id="teamSearch" placeholder="Search name, role, or allergy..." onkeyup="filterTeam()">
     </div>
 
-    <div class="callout-banner">
+    <div class="callout-banner" style="">
       <strong>⚠️ Critical Medical &amp; Allergy Alerts:</strong>
       <ul style="margin-top:0.35rem; padding-left:1.25rem;">
         <li><strong>Enoch Hii:</strong> <strong>SEVERE</strong> allergy to <strong>Peanuts, Tree nuts, Ibuprofen, Penicillin, and Bee/Insect stings</strong> (Mild: dust mites, pollen, animal fur).</li>
@@ -1209,150 +1694,150 @@
       <table id="teamTable">
         <thead>
           <tr>
-            <th>Preferred Name</th>
-            <th>Legal Full Name</th>
-            <th>DOB (Age)</th>
-            <th>Occupation / Study</th>
-            <th>Assigned Trip Roles</th>
-            <th>Allergies / Medical</th>
-            <th>Contact Info</th>
+            <th style="">Preferred Name</th>
+            <th style="">Legal Full Name</th>
+            <th style="">DOB (Age)</th>
+            <th style="">Occupation / Study</th>
+            <th style="">Assigned Trip Roles</th>
+            <th style="">Allergies / Medical</th>
+            <th style="">Contact Info</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Henry</strong></td>
-            <td>Hung-jui Liu</td>
-            <td>24 Mar 1974 (52)</td>
-            <td>High School Math Teacher</td>
-            <td>Primary Driver, Cerritos Chinese children service</td>
-            <td>None</td>
-            <td>+64 21 171 1455<br>hhjliu2020@gmail.com</td>
+            <td style=""><strong>Henry</strong></td>
+            <td style="">Hung-jui Liu</td>
+            <td style="">24 Mar 1974 (52)</td>
+            <td style="">High School Math Teacher</td>
+            <td style="">Primary Driver, Cerritos Chinese children service</td>
+            <td style="">None</td>
+            <td style="">+64 21 171 1455<br>hhjliu2020@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Grace</strong></td>
-            <td>Shu-hsin Chen</td>
-            <td>04 Aug 1975 (51)</td>
-            <td>Mother / Serving One</td>
-            <td>Logistics &amp; Catering Coordinator</td>
-            <td><span class="allergy-mild">Mild: Hay fever</span></td>
-            <td>+64 21 258 4776<br>graceliu365@yahoo.com</td>
+            <td style=""><strong>Grace</strong></td>
+            <td style="">Shu-hsin Chen</td>
+            <td style="">04 Aug 1975 (51)</td>
+            <td style="">Mother / Serving One</td>
+            <td style="">Logistics &amp; Catering Coordinator</td>
+            <td style=""><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td style="">+64 21 258 4776<br>graceliu365@yahoo.com</td>
           </tr>
           <tr>
-            <td><strong>Matthew</strong></td>
-            <td>Chung Yin Man</td>
-            <td>17 Jan 1994 (32)</td>
-            <td>Full-time Serving Brother</td>
-            <td>Driver, Communication, Ministry reading keeper</td>
-            <td>None</td>
-            <td>+64 22 037 5022<br>matthewmcy1994@gmail.com</td>
+            <td style=""><strong>Matthew</strong></td>
+            <td style="">Chung Yin Man</td>
+            <td style="">17 Jan 1994 (32)</td>
+            <td style="">Full-time Serving Brother</td>
+            <td style="">Driver, Communication, Ministry reading keeper</td>
+            <td style="">None</td>
+            <td style="">+64 22 037 5022<br>matthewmcy1994@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Thomas</strong></td>
-            <td>Yao-Chieh Chiang</td>
-            <td>09 Oct 1998 (28)</td>
-            <td>Full-time Serving Brother</td>
-            <td>Driver, Group Fund Treasurer, Church liaison</td>
-            <td>None</td>
-            <td>+64 21 0813 2755<br>t.chiang1009@gmail.com</td>
+            <td style=""><strong>Thomas</strong></td>
+            <td style="">Yao-Chieh Chiang</td>
+            <td style="">09 Oct 1998 (28)</td>
+            <td style="">Full-time Serving Brother</td>
+            <td style="">Driver, Group Fund Treasurer, Church liaison</td>
+            <td style="">None</td>
+            <td style="">+64 21 0813 2755<br>t.chiang1009@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Tim</strong></td>
-            <td>Tim Lam</td>
-            <td>~1993 (33)</td>
-            <td>Serving Brother (Hamilton)</td>
-            <td>Serving one, Vehicle navigator</td>
-            <td>None</td>
-            <td>—</td>
+            <td style=""><strong>Tim</strong></td>
+            <td style="">Tim Lam</td>
+            <td style="">~1993 (33)</td>
+            <td style="">Serving Brother (Hamilton)</td>
+            <td style="">Serving one, Vehicle navigator</td>
+            <td style="">None</td>
+            <td style="">—</td>
           </tr>
           <tr>
-            <td><strong>Michelle</strong></td>
-            <td>Michelle Lee</td>
-            <td>~1994 (32)</td>
-            <td>Veterinarian</td>
-            <td>ESTA &amp; travel insurance reminder coordinator</td>
-            <td>None</td>
-            <td>+64 21 236 4777</td>
+            <td style=""><strong>Michelle</strong></td>
+            <td style="">Michelle Lee</td>
+            <td style="">~1994 (32)</td>
+            <td style="">Veterinarian</td>
+            <td style="">ESTA &amp; travel insurance reminder coordinator</td>
+            <td style="">None</td>
+            <td style="">+64 21 236 4777</td>
           </tr>
           <tr>
-            <td><strong>Ezekiel</strong></td>
-            <td>Ezekiel Sterling</td>
-            <td>30 May 2006 (20)</td>
-            <td>3rd Year Medicine</td>
-            <td>First Aid Lead, Gift card organizer</td>
-            <td>None</td>
-            <td>+64 27 497 4989<br>ezekielksterlingwk@gmail.com</td>
+            <td style=""><strong>Ezekiel</strong></td>
+            <td style="">Ezekiel Sterling</td>
+            <td style="">30 May 2006 (20)</td>
+            <td style="">3rd Year Medicine</td>
+            <td style="">First Aid Lead, Gift card organizer</td>
+            <td style="">None</td>
+            <td style="">+64 27 497 4989<br>ezekielksterlingwk@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Brian</strong></td>
-            <td>Hansung Lee</td>
-            <td>08 Aug 2006 (20)</td>
-            <td>BCom/BSc Stats &amp; CompSci</td>
-            <td>Weather Reporter</td>
-            <td>None</td>
-            <td>+64 21 278 8869<br>brianhansunglee670@gmail.com</td>
+            <td style=""><strong>Brian</strong></td>
+            <td style="">Hansung Lee</td>
+            <td style="">08 Aug 2006 (20)</td>
+            <td style="">BCom/BSc Stats &amp; CompSci</td>
+            <td style="">Weather Reporter</td>
+            <td style="">None</td>
+            <td style="">+64 21 278 8869<br>brianhansunglee670@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Branden</strong></td>
-            <td>Hanju Lee</td>
-            <td>12 Nov 2008 (18)</td>
-            <td>High School Graduate / Uni</td>
-            <td>Logistics Assistant</td>
-            <td>None</td>
-            <td>+64 21 278 8846<br>brandenhjlee@hotmail.com</td>
+            <td style=""><strong>Branden</strong></td>
+            <td style="">Hanju Lee</td>
+            <td style="">12 Nov 2008 (18)</td>
+            <td style="">High School Graduate / Uni</td>
+            <td style="">Logistics Assistant</td>
+            <td style="">None</td>
+            <td style="">+64 21 278 8846<br>brandenhjlee@hotmail.com</td>
           </tr>
           <tr>
-            <td><strong>Enoch</strong></td>
-            <td>Enoch Hii</td>
-            <td>10 Dec 2006 (20)</td>
-            <td>2nd Year Pharmacy</td>
-            <td>First Aid Lead, Gift card organizer</td>
-            <td><span class="allergy-severe">SEVERE: Peanuts, Tree nuts, Ibuprofen, Penicillin, Bee stings</span><br><span class="allergy-mild">Mild: Dust, pollen, fur</span></td>
-            <td>+64 22 300 7862<br>Enochxu1012@gmail.com</td>
+            <td style=""><strong>Enoch</strong></td>
+            <td style="">Enoch Hii</td>
+            <td style="">10 Dec 2006 (20)</td>
+            <td style="">2nd Year Pharmacy</td>
+            <td style="">First Aid Lead, Gift card organizer</td>
+            <td style=""><span class="allergy-severe">SEVERE: Peanuts, Tree nuts, Ibuprofen, Penicillin, Bee stings</span><br><span class="allergy-mild">Mild: Dust, pollen, fur</span></td>
+            <td style="">+64 22 300 7862<br>Enochxu1012@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Caleb</strong></td>
-            <td>Caleb Liu</td>
-            <td>29 May 2007 (19)</td>
-            <td>Health Science First Year (HSFY)</td>
-            <td>Daily logistics, daily reminders &amp; timekeeper</td>
-            <td><span class="allergy-severe">SEVERE: All nuts</span><br><span class="allergy-mild">Mild: Hay fever</span></td>
-            <td>+64 22 106 3692<br>calebliu2020@gmail.com</td>
+            <td style=""><strong>Caleb</strong></td>
+            <td style="">Caleb Liu</td>
+            <td style="">29 May 2007 (19)</td>
+            <td style="">Health Science First Year (HSFY)</td>
+            <td style="">Daily logistics, daily reminders &amp; timekeeper</td>
+            <td style=""><span class="allergy-severe">SEVERE: All nuts</span><br><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td style="">+64 22 106 3692<br>calebliu2020@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Ezra</strong></td>
-            <td>Ezra Liu</td>
-            <td>06 Oct 2008 (18)</td>
-            <td>Health Science First Year (HSFY)</td>
-            <td>Road Navigator (routes &amp; avoiding toll roads)</td>
-            <td><span class="allergy-mild">Mild: Cat fur, hay fever</span></td>
-            <td>+64 22 471 6950<br>ezraliu2020@gamil.com</td>
+            <td style=""><strong>Ezra</strong></td>
+            <td style="">Ezra Liu</td>
+            <td style="">06 Oct 2008 (18)</td>
+            <td style="">Health Science First Year (HSFY)</td>
+            <td style="">Road Navigator (routes &amp; avoiding toll roads)</td>
+            <td style=""><span class="allergy-mild">Mild: Cat fur, hay fever</span></td>
+            <td style="">+64 22 471 6950<br>ezraliu2020@gamil.com</td>
           </tr>
           <tr>
-            <td><strong>Crystal</strong></td>
-            <td>Qi-An Chiang</td>
-            <td>05 Sep 2007 (19)</td>
-            <td>Health Science First Year (HSFY)</td>
-            <td>Website designer, Gift organizer</td>
-            <td><span class="allergy-mild">Mild: Hay fever</span></td>
-            <td>+64 21 0806 7775<br>bluerivercrystal@gmail.com</td>
+            <td style=""><strong>Crystal</strong></td>
+            <td style="">Qi-An Chiang</td>
+            <td style="">05 Sep 2007 (19)</td>
+            <td style="">Health Science First Year (HSFY)</td>
+            <td style="">Website designer, Gift organizer</td>
+            <td style=""><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td style="">+64 21 0806 7775<br>bluerivercrystal@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Shermin</strong></td>
-            <td>Sher Min Tan</td>
-            <td>05 Apr 2003 (23)</td>
-            <td>BCom Finance &amp; Accounting</td>
-            <td>Website designer, Gift organizer</td>
-            <td>None</td>
-            <td>+64 27 491 4588<br>tanshermin0504@gmail.com</td>
+            <td style=""><strong>Shermin</strong></td>
+            <td style="">Sher Min Tan</td>
+            <td style="">05 Apr 2003 (23)</td>
+            <td style="">BCom Finance &amp; Accounting</td>
+            <td style="">Website designer, Gift organizer</td>
+            <td style="">None</td>
+            <td style="">+64 27 491 4588<br>tanshermin0504@gmail.com</td>
           </tr>
           <tr>
-            <td><strong>Gazelle</strong></td>
-            <td>Ka Hie Gazelle Lee</td>
-            <td>12 Apr 2006 (20)</td>
-            <td>University Student</td>
-            <td>Training registrant</td>
-            <td>None</td>
-            <td>+64 21 165 3041<br>gazellekhlee@gmail.com</td>
+            <td style=""><strong>Gazelle</strong></td>
+            <td style="">Ka Hie Gazelle Lee</td>
+            <td style="">12 Apr 2006 (20)</td>
+            <td style="">University Student</td>
+            <td style="">Training registrant</td>
+            <td style="">None</td>
+            <td style="">+64 21 165 3041<br>gazellekhlee@gmail.com</td>
           </tr>
         </tbody>
       </table>
@@ -1362,16 +1847,16 @@
   <!-- TAB 6: PACKING & TASKS -->
   <section id="prep" class="tab-panel">
     <div class="section-header">
-      <h2>Interactive Packing Checklist &amp; Coordinator Action Items</h2>
+      <h2 style="">Interactive Packing Checklist &amp; Coordinator Action Items</h2>
     </div>
 
-    <div class="callout-info">
+    <div class="callout-info" style="">
       <strong>🚫 Do NOT Pack These Items:</strong> Sleeping bags, pillows, and hair dryers are already provided at accommodations—save luggage space!
     </div>
 
     <div class="grid-2">
       <div class="card">
-        <h3>🎒 Carry-On Bag Checklist</h3>
+        <h3 style="">🎒 Carry-On Bag Checklist</h3>
         <div id="carryOnList">
           <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Passport &amp; physical paper copies</span></label>
           <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Credit Cards / Wise Travel Debit Card</span></label>
@@ -1390,7 +1875,7 @@
       </div>
 
       <div class="card">
-        <h3>🧳 Checked Luggage Checklist</h3>
+        <h3 style="">🧳 Checked Luggage Checklist</h3>
         <div id="checkedList">
           <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Meeting clothes (white dress shirts, ties) &amp; formal shoes</span></label>
           <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Casual wear &amp; comfortable daily walking shoes</span></label>
@@ -1410,7 +1895,7 @@
 
     <div class="grid-3">
       <div class="card">
-        <h3>🛒 Bookings &amp; Purchases</h3>
+        <h3 style="">🛒 Bookings &amp; Purchases</h3>
         <ul style="padding-left:1.2rem; font-size:0.88rem;">
           <li>✅ 2 Rental Cars booked (Ford Transit &amp; Jeep Wrangler)</li>
           <li>Buy US eSIM cards prior to departure (do NOT buy at LAX)</li>
@@ -1424,7 +1909,7 @@
       </div>
 
       <div class="card">
-        <h3>🤝 US Church Fellowship</h3>
+        <h3 style="">🤝 US Church Fellowship</h3>
         <ul style="padding-left:1.2rem; font-size:0.88rem;">
           <li>Confirm Brian &amp; Branden's Anaheim stay (Dec 9 &amp; Dec 27–28)</li>
           <li>Confirm Michelle's LA hospitality (Dec 11–13)</li>
@@ -1438,7 +1923,7 @@
       </div>
 
       <div class="card">
-        <h3>🔍 Safety &amp; Logistics Checks</h3>
+        <h3 style="">🔍 Safety &amp; Logistics Checks</h3>
         <ul style="padding-left:1.2rem; font-size:0.88rem;">
           <li>Verify CA DMV rules for NZ driver's licences</li>
           <li>Check rental agency snow chain policies &amp; winter tire ratings</li>
@@ -1451,7 +1936,7 @@
 
 </main>
 
-<footer>
+<footer style="">
   2026 December California Blending Trip &amp; Conference · Generated from Trip Planning Spreadsheet
 </footer>
 
@@ -1497,17 +1982,37 @@
   let isEditing = false;
 
   const editableSelectors = [
+    "header.hero h1", "header.hero p", "header.hero .hero-badge",
+    ".stat-card .stat-val", ".stat-card .stat-lbl",
+    "main h1, main h2, main h3, main h4, main h5, main h6, main p, main li, main td, main th",
+    "main strong, main em, main span, main dt, main dd, main caption",
+    "main .notes-box, main .cost-strip, main .day-title, main .tag, main .check-item span, main .photo-slot figcaption",
+    "footer"
+  ];
+  const legacyEditableSelectors = [
     "header.hero h1", "header.hero p.subtitle", ".stat-card .stat-val", ".stat-card .stat-lbl",
     ".section-header h2", ".day-title", ".day-col li", ".notes-box", ".cost-strip",
     ".card h3", ".card p", "#teamTable td", "#teamTable th",
     ".callout-banner", ".callout-info", "footer"
   ];
 
+  function getEditableElements() {
+    const candidates = Array.from(document.querySelectorAll(editableSelectors.join(",")));
+    const candidateSet = new Set(candidates);
+    return candidates.filter(el => {
+      if (el.closest("#editToolbar, button, input, select, textarea, option")) return false;
+      for (let parent = el.parentElement; parent; parent = parent.parentElement) {
+        if (candidateSet.has(parent)) return false;
+      }
+      return true;
+    });
+  }
+
   function applyEditableState(enable) {
     isEditing = enable;
     const btn = document.getElementById("toggleEditBtn");
     const status = document.getElementById("editStatusText");
-    document.querySelectorAll(editableSelectors.join(",")).forEach(el => {
+    getEditableElements().forEach(el => {
       el.contentEditable = enable ? "true" : "false";
       el.style.outline = enable ? "1px dashed rgba(14, 165, 233, 0.55)" : "";
       el.style.borderRadius = enable ? "4px" : "";
@@ -1515,7 +2020,7 @@
     if (enable) {
       btn.textContent = "Done Editing";
       btn.style.background = "#16a34a";
-      status.textContent = "Editing ON — click any text, schedule item, table cell, or note to edit directly.";
+      status.textContent = "Editing ON — click headings, text, schedule items, table cells, notes, or photo captions to edit.";
     } else {
       btn.textContent = "Enable Editing";
       btn.style.background = "#0284c7";
@@ -1529,25 +2034,108 @@
   }
 
   function saveChangesToBrowser(silent = false) {
-    const data = {};
-    document.querySelectorAll(editableSelectors.join(",")).forEach((el, idx) => {
-      data[idx] = el.innerHTML;
+    const text = {};
+    getEditableElements().forEach((el, idx) => {
+      text[idx] = el.innerHTML;
     });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    if (!silent) {
-      document.getElementById("editStatusText").textContent = "Saved changes locally in this browser.";
+    const photos = {};
+    document.querySelectorAll(".photo-slot[data-photo-id]").forEach(slot => {
+      const image = slot.querySelector(".photo-preview");
+      if (image && image.src && !image.hidden) photos[slot.dataset.photoId] = image.src;
+    });
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ text, photos }));
+      if (!silent) {
+        document.getElementById("editStatusText").textContent = "Saved changes locally in this browser.";
+      }
+      return true;
+    } catch (e) {
+      document.getElementById("editStatusText").textContent = "Browser storage is full. Download Updated HTML to keep your edits and photos.";
+      return false;
     }
+  }
+
+  function showLocationPhoto(slot, src) {
+    const image = slot.querySelector(".photo-preview");
+    image.src = src;
+    image.hidden = false;
+    slot.classList.add("has-photo");
+    slot.querySelector(".photo-add").textContent = "Replace photo";
+    slot.querySelector(".photo-remove").hidden = false;
+  }
+
+  function loadLocationPhoto(input) {
+    const file = input.files && input.files[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      document.getElementById("editStatusText").textContent = "Choose an image file for this location.";
+      input.value = "";
+      return;
+    }
+    const slot = input.closest(".photo-slot");
+    const reader = new FileReader();
+    reader.onload = () => {
+      const image = new Image();
+      image.onload = () => {
+        try {
+          const maxDimension = 1600;
+          const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          const context = canvas.getContext("2d");
+          context.fillStyle = "#ffffff";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          showLocationPhoto(slot, canvas.toDataURL("image/jpeg", 0.84));
+        } catch (e) {
+          showLocationPhoto(slot, reader.result);
+        }
+        saveChangesToBrowser(true);
+      };
+      image.onerror = () => {
+        showLocationPhoto(slot, reader.result);
+        saveChangesToBrowser(true);
+      };
+      image.src = reader.result;
+    };
+    reader.onerror = () => {
+      document.getElementById("editStatusText").textContent = "This image could not be loaded. Try another file.";
+    };
+    reader.readAsDataURL(file);
+    input.value = "";
+  }
+
+  function removeLocationPhoto(button) {
+    const slot = button.closest(".photo-slot");
+    const image = slot.querySelector(".photo-preview");
+    image.removeAttribute("src");
+    image.hidden = true;
+    slot.classList.remove("has-photo");
+    slot.querySelector(".photo-add").textContent = "Add photo";
+    button.hidden = true;
+    saveChangesToBrowser(true);
   }
 
   function restoreChangesFromBrowser() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
     try {
-      const data = JSON.parse(raw);
-      document.querySelectorAll(editableSelectors.join(",")).forEach((el, idx) => {
-        if (Object.prototype.hasOwnProperty.call(data, idx)) {
-          el.innerHTML = data[idx];
-        }
+      const saved = JSON.parse(raw);
+      const photos = saved.photos || {};
+      if (saved.text) {
+        getEditableElements().forEach((el, idx) => {
+          if (Object.prototype.hasOwnProperty.call(saved.text, idx)) el.innerHTML = saved.text[idx];
+        });
+      } else {
+        const legacyText = saved;
+        document.querySelectorAll(legacyEditableSelectors.join(",")).forEach((el, idx) => {
+          if (Object.prototype.hasOwnProperty.call(legacyText, idx)) el.innerHTML = legacyText[idx];
+        });
+      }
+      document.querySelectorAll(".photo-slot[data-photo-id]").forEach(slot => {
+        const src = photos[slot.dataset.photoId];
+        if (src) showLocationPhoto(slot, src);
       });
     } catch (e) {}
   }
@@ -1577,8 +2165,12 @@
     URL.revokeObjectURL(url);
   }
 
-  window.addEventListener("DOMContentLoaded", restoreChangesFromBrowser);
+  window.addEventListener("DOMContentLoaded", () => {
+    restoreChangesFromBrowser();
+    applyEditableState(true);
+  });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
