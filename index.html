@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 December California Blending Trip & Conference</title>
+<style>
+  :root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-alt: #f1f5f9;
+    --primary: #0f4c81;
+    --primary-light: #e0f2fe;
+    --accent: #d97706;
+    --accent-light: #fef3c7;
+    --teal: #0d9488;
+    --teal-light: #ccfbf1;
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #e2e8f0;
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(135deg, #0b3954 0%, #0f4c81 55%, #0d9488 100%);
+    color: #fff;
+    padding: 2.5rem 1.5rem 2rem;
+    position: relative;
+  }
+  .hero-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  header.hero h1 {
+    font-size: clamp(1.65rem, 3.2vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+  header.hero p.subtitle {
+    color: rgba(255,255,255,0.88);
+    font-size: 1rem;
+    max-width: 720px;
+  }
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+  }
+  .stat-card .stat-val {
+    font-size: 1.35rem;
+    font-weight: 800;
+    display: block;
+  }
+  .stat-card .stat-lbl {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  nav.tabs-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .tabs-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    scrollbar-width: thin;
+  }
+  .tab-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  .tab-btn:hover {
+    background: var(--surface-alt);
+    color: var(--text);
+  }
+  .tab-btn.active {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  main.container {
+    max-width: 1240px;
+    margin: 1.75rem auto 3rem;
+    padding: 0 1.25rem;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .section-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .pill {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .pill.active, .pill:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  /* Itinerary Cards */
+  .day-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .day-header {
+    background: var(--surface-alt);
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .day-title {
+    font-weight: 800;
+    font-size: 1.08rem;
+    color: var(--primary);
+  }
+  .day-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+  .tag-loc { background: var(--primary-light); color: var(--primary); }
+  .tag-stay { background: var(--teal-light); color: var(--teal); }
+  .tag-special { background: var(--accent-light); color: #92400e; }
+  .tag-alert { background: var(--danger-light); color: var(--danger); }
+
+  .day-body {
+    padding: 1.1rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 820px) {
+    .day-body { grid-template-columns: 1fr; }
+  }
+  .day-col h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+  }
+  .day-col ul {
+    padding-left: 1.2rem;
+    font-size: 0.93rem;
+  }
+  .day-col li { margin-bottom: 0.32rem; }
+  .notes-box {
+    background: #f8fafc;
+    border-left: 3px solid var(--teal);
+    padding: 0.75rem 0.9rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.88rem;
+  }
+  .cost-strip {
+    margin-top: 0.65rem;
+    padding: 0.55rem 0.8rem;
+    background: var(--accent-light);
+    border-radius: 8px;
+    font-size: 0.84rem;
+    color: #78350f;
+    font-weight: 500;
+  }
+
+  /* Generic Cards & Grids */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th, td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: var(--surface-alt);
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+
+  .allergy-severe {
+    background: var(--danger-light);
+    color: var(--danger);
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+  .allergy-mild {
+    background: var(--accent-light);
+    color: #92400e;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 0.8rem;
+  }
+  .status-yes {
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+  }
+  .status-pending {
+    background: var(--accent-light);
+    color: #92400e;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+  }
+
+  /* Checklist interactive */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed var(--border);
+    cursor: pointer;
+    font-size: 0.92rem;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+  }
+  .check-item.checked span {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+  .search-input {
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    min-width: 240px;
+  }
+  .callout-banner {
+    background: var(--danger-light);
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    padding: 0.9rem 1.1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+  }
+  .callout-info {
+    background: var(--primary-light);
+    border: 1px solid #bae6fd;
+    color: #075985;
+    padding: 0.9rem 1.1rem;
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.83rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+</style>
+</head>
+<body>
+
+
+<div id="editToolbar" style="background:#0f172a; color:#f8fafc; padding:0.65rem 1.25rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.75rem; border-bottom:1px solid #1e293b; font-size:0.86rem;">
+  <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+    <strong style="color:#38bdf8;">✏️ Editor Mode:</strong>
+    <button id="toggleEditBtn" onclick="toggleEditMode()" style="background:#0284c7; color:#fff; border:none; padding:0.35rem 0.85rem; border-radius:6px; font-weight:700; cursor:pointer;">Enable Editing</button>
+    <span id="editStatusText" style="color:#cbd5e1;">Viewing mode (click "Enable Editing" to edit text directly on the page)</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+    <button onclick="saveChangesToBrowser()" style="background:#0d9488; color:#fff; border:none; padding:0.35rem 0.75rem; border-radius:6px; font-weight:600; cursor:pointer;">Save Draft (Browser)</button>
+    <button onclick="downloadUpdatedHtml()" style="background:#d97706; color:#fff; border:none; padding:0.35rem 0.75rem; border-radius:6px; font-weight:600; cursor:pointer;">Download Updated HTML</button>
+    <button onclick="resetSavedChanges()" style="background:#334155; color:#f8fafc; border:none; padding:0.35rem 0.75rem; border-radius:6px; font-weight:600; cursor:pointer;">Reset</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge-row">
+      <span class="hero-badge">Dec 9 – Dec 29, 2026</span>
+      <span class="hero-badge">Southern California &amp; Sequoia NP</span>
+      <span class="hero-badge">LSM Semiannual Training (Anaheim)</span>
+    </div>
+    <h1>2026 California Blending Trip &amp; Conference</h1>
+    <p class="subtitle">Complete itinerary, flight &amp; vehicle logistics, accommodation matrix, budget breakdown, team directory, and interactive packing checklist.</p>
+    <div class="quick-stats">
+      <div class="stat-card">
+        <span class="stat-val">20 Days</span>
+        <span class="stat-lbl">Dec 9 – Dec 29, 2026</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">14 Saints</span>
+        <span class="stat-lbl">Core Travel Group</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">2 Vehicles</span>
+        <span class="stat-lbl">12-Seater Transit + Wrangler</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">NZD $952.14</span>
+        <span class="stat-lbl">Group Fund / Person</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">NZD $1,000</span>
+        <span class="stat-lbl">Rec. Pocket Money</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="openTab('schedule', this)">📅 Daily Schedule</button>
+    <button class="tab-btn" onclick="openTab('flights', this)">✈️ Flights &amp; Weather</button>
+    <button class="tab-btn" onclick="openTab('stay', this)">🏠 Accommodation &amp; Fleet</button>
+    <button class="tab-btn" onclick="openTab('budget', this)">💰 Budget &amp; Food</button>
+    <button class="tab-btn" onclick="openTab('team', this)">👥 Team, Roles &amp; Health</button>
+    <button class="tab-btn" onclick="openTab('prep', this)">🎒 Packing &amp; Tasks</button>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- TAB 1: DAILY SCHEDULE -->
+  <section id="schedule" class="tab-panel active">
+    <div class="section-header">
+      <h2>Day-by-Day Itinerary &amp; Special Events</h2>
+      <div class="filter-pills">
+        <button class="pill active" onclick="filterDays('all', this)">All Days (Dec 10–29)</button>
+        <button class="pill" onclick="filterDays('sd', this)">San Diego / Vista (Dec 10–12)</button>
+        <button class="pill" onclick="filterDays('la', this)">Los Angeles / UCLA (Dec 13–15)</button>
+        <button class="pill" onclick="filterDays('seq', this)">Sequoia NP (Dec 16–18)</button>
+        <button class="pill" onclick="filterDays('train', this)">Cerritos &amp; Training (Dec 18–29)</button>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>🐬 SeaWorld Schedule <span class="tag tag-loc">Fri 11 Dec</span></h3>
+        <table>
+          <thead><tr><th>Time</th><th>Show / Activity</th><th>Location</th></tr></thead>
+          <tbody>
+            <tr><td><strong>10:15 AM</strong></td><td>Moray Eel Talk</td><td>Ocean Explorer</td></tr>
+            <tr><td><strong>10:45 AM</strong></td><td>Fish &amp; Turtle Feeding</td><td>Turtle Reef</td></tr>
+            <tr><td><strong>11:15 AM</strong></td><td>Sea Otter Trainer Talk</td><td>Wild Arctic Otter Window</td></tr>
+            <tr><td><strong>11:30 AM</strong></td><td>Sea Lion Presentation</td><td>Sea Lion Point</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.84rem; color:var(--text-muted); margin-top:0.65rem;">
+          <strong>Dining Options:</strong> Explorer Cafe, Hibisco Mexican Tacos, Calypso Bay Smokehouse, Shipwreck Reef Cafe, Manta Pizza, The Chicken Snack Shack, Funnel Cake.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🏀 Lakers Game Roster <span class="tag tag-special">Mon 14 Dec · 7:00 PM</span></h3>
+        <p style="font-size:0.88rem; margin-bottom:0.65rem;"><strong>Venue:</strong> Crypto.com Arena, Los Angeles (Drop off by 4:00 PM after Grace Terrace)</p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:0.8rem;">
+          <span class="tag tag-loc">1. Thomas Chiang</span>
+          <span class="tag tag-loc">2. Crystal Chiang</span>
+          <span class="tag tag-loc">3. Matthew Man</span>
+          <span class="tag tag-loc">4. Brian Lee</span>
+          <span class="tag tag-loc">5. Brandon Lee</span>
+          <span class="tag tag-loc">6. Ezekiel Sterling</span>
+          <span class="tag tag-loc">7. Shermin Tan</span>
+        </div>
+        <p style="font-size:0.84rem; color:var(--text-muted);">
+          <strong>Non-attendees (Henry, Grace, Caleb, Ezra, Enoch, Michelle):</strong> Dinner &amp; fellowship at Brother Stephen's house / optional Santa Monica Pier or batting cages.
+        </p>
+      </div>
+    </div>
+
+    <div class="day-grid" id="itineraryList">
+
+      <div class="day-card" data-leg="sd">
+        <div class="day-header">
+          <span class="day-title">Thu 10 Dec — Arrival at LAX, Acaciawood &amp; Drive to Vista</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">LAX → Anaheim → Vista</span>
+            <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
+            <span class="tag tag-special">🎂 Happy Birthday Enoch!</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>07:10 AM:</strong> Main NZ group (8) lands at LAX Terminal B (QF3157); meet Matthew Man arriving 07:55 AM (DAL88).</li>
+              <li><strong>10:00 AM:</strong> First group of 9 takes purple "Rental Car Shuttle" to 5251 W 98th St to pick up <strong>Ford Transit 12-seater</strong> (inspect &amp; video car before leaving).</li>
+              <li><strong>11:00 AM:</strong> Visit <strong>Acaciawood Preparatory Academy</strong> (Brian &amp; Branden meet group there from Anaheim).</li>
+              <li><strong>12:25 PM:</strong> Thomas &amp; Crystal arrive LAX Terminal 1 (from SFO), pick up <strong>Jeep Wrangler</strong>, meet group in Anaheim.</li>
+              <li><strong>03:00 PM:</strong> Depart Anaheim for Vista (~1h 30m, 75 mi); pick up snacks/dinner contribution on the way.</li>
+              <li><strong>Evening:</strong> Dinner with Vista saints &amp; drop off at hospitality families.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Use bathroom before leaving LAX terminal.<br>
+              • First group of 9: Henry, Grace, Caleb, Ezra, Ezekiel, Enoch, Shermin, Tim, Matthew.<br>
+              • Optional stops en route: La Jolla Cove &amp; Beach, Outlets at San Clemente.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Ford Transit NZD$3,383 (paid by Henry); Jeep Wrangler NZD$1,072 (paid by Thomas); Petrol ~USD$28 (NZD$50); Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="sd">
+        <div class="day-header">
+          <span class="day-title">Fri 11 Dec — San Diego SeaWorld &amp; UCSD College Blending</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">San Diego / Vista</span>
+            <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Before 09:00 AM:</strong> Pick up from hospitality families (breakfast at hospitality).</li>
+              <li><strong>10:00 AM – 05:00 PM:</strong> San Diego SeaWorld (see show schedule above; use group food pass).</li>
+              <li><strong>Evening:</strong> Head back to Vista for dinner &amp; blending meeting with UCSD college-age saints.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Pack disposable rain ponchos for splash zones.<br>
+              • Confirm food pass redemption upon entry.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> SeaWorld admission NZD$106–$175 (USD$60+), Parking NZD$61 (USD$35) (Alt: San Diego Zoo NZD$133 / Parking NZD$30); Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="sd">
+        <div class="day-header">
+          <span class="day-title">Sat 12 Dec — Little Italy, USS Midway, Balboa Park &amp; UCSD</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">San Diego</span>
+            <span class="tag tag-stay">Stay: Vista / San Marcos Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Before 09:00 AM:</strong> Pick up from hospitality families.</li>
+              <li><strong>10:00 AM:</strong> Little Italy Farmers Market (open 8 AM – 2 PM Saturdays) &amp; lunch.</li>
+              <li><strong>01:00 PM:</strong> Visit USS Midway Museum or Seaport Village / Tuna Harbor Park.</li>
+              <li><strong>Afternoon:</strong> Balboa Park exploration &amp; museums.</li>
+              <li><strong>Evening:</strong> Return to Vista for dinner &amp; meeting with UCSD saints (last day of UCSD finals).</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Balboa Park options: Organ concert, House of Pacific Relations, Puppet Theatre ($7), Fleet Science ($30), Air &amp; Space ($30), Model Railroad ($20), Auto Museum ($20), Natural History ($15).<br>
+              • Nearby Midway: Maritime Museum, Fish Market.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Balboa Park Parkwise Pass NZD$137.54 (USD$78) or single museums; USS Midway NZD$70 (USD$39 online special); Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="la">
+        <div class="day-header">
+          <span class="day-title">Sun 13 Dec — Vista Lord's Table, Irvine Spectrum &amp; Move to UCLA</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Vista → Irvine → LA (UCLA)</span>
+            <span class="tag tag-stay">Stay: UCLA Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>10:00 AM – 12:00 PM:</strong> Lord's Table at the Church in Vista &amp; San Marcos, followed by Love Feast lunch.</li>
+              <li><strong>01:30 PM:</strong> Depart Vista northbound toward Los Angeles (2 hrs, 105 miles).</li>
+              <li><strong>03:00 PM – 06:00 PM:</strong> Stop at Irvine Spectrum Center (outdoor ice skating 2:00–9:30 PM, shopping, dinner).</li>
+              <li><strong>07:00 PM:</strong> Arrive in UCLA area &amp; drop off at hospitality families.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • <strong>Vista Meeting Hall:</strong> 150-B Hannalei Dr., Vista, CA 92083.<br>
+              • Optional stop en route: San Clemente.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Irvine Spectrum Ice Skating USD$27 (NZD$49.23 incl. skate hire); Petrol; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="la">
+        <div class="day-header">
+          <span class="day-title">Mon 14 Dec — LA Museums, Grace Terrace, Lakers Game &amp; Fellowship</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Los Angeles / UCLA</span>
+            <span class="tag tag-stay">Stay: UCLA Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>10:00 AM – 12:00 PM:</strong> Exposition Park: Lucas Museum of Narrative Art / California Science Center / Samuel Oschin Air &amp; Space Center.</li>
+              <li><strong>12:30 PM – 01:30 PM:</strong> Lunch at Mercado La Paloma.</li>
+              <li><strong>02:00 PM – 04:00 PM:</strong> Grace Terrace; depart by 4:00 PM for Crypto.com Arena.</li>
+              <li><strong>Evening Split:</strong> 7 saints attend 7:00 PM Lakers Game; remaining 7 enjoy dinner &amp; fellowship at Brother Stephen's house (or Santa Monica Pier / batting cages).</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Note: Griffith Observatory main building is closed on Mondays.<br>
+              • Santa Monica options: Boardwalk, 3rd St Promenade, 22-mi beach bike trail, Baseball Central batting cages.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> CA Science Center (Free); Natural History Museum USD$25 student / $32 adult; Museum of Illusions USD$20–$35; Bike hire USD$25–$70/day; Lakers tickets USD$60+.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="la">
+        <div class="day-header">
+          <span class="day-title">Tue 15 Dec — UCLA Campus, Getty Center &amp; Prayer Meeting</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">UCLA / West LA</span>
+            <span class="tag tag-stay">Stay: UCLA Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Morning:</strong> UCLA campus walking tour &amp; lunch around Westwood/UCLA.</li>
+              <li><strong>Afternoon:</strong> Visit The Getty Center (take tram from carpark; view medieval biblical manuscripts &amp; illumination exhibit).</li>
+              <li><strong>Evening:</strong> Dinner with saints &amp; church prayer meeting.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Alternative theme park options noted in plan: Disneyland (USD$190) or Knott's Berry Farm.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Getty Center admission free (parking fee applies); Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="seq">
+        <div class="day-header">
+          <span class="day-title">Wed 16 Dec — Drive to Sequoia National Park &amp; White Castle Check-In</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">LA → Bakersfield → Three Rivers</span>
+            <span class="tag tag-stay">Stay: White Castle Airbnb</span>
+            <span class="tag tag-alert">❄️ Chains &amp; Full Tank Mandatory</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Before 09:00 AM:</strong> Depart LA northbound (197 miles, ~3.5 hrs via toll road).</li>
+              <li><strong>Mid-Morning:</strong> Stretch &amp; restroom stop in Bakersfield.</li>
+              <li><strong>Midday:</strong> Grocery shopping in Visalia (2 breakfasts, 1 lunch, 2 dinners, hiking snacks) &amp; <strong>fill fuel at Three Rivers</strong>.</li>
+              <li><strong>Afternoon:</strong> Check in at White Castle Airbnb; enter Sequoia NP if weather/road conditions permit.</li>
+              <li><strong>Evening:</strong> Dinner cooking team, Laundry Day, and Uncle Henry's story time by the fireplace.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • <strong>Airbnb Address:</strong> 43574 Dinely Dr, Three Rivers, CA 93271 (sleeps 16, 4 bed / 2.5 bath, laundry, BBQ, 8 min from Ash Mountain entrance on Kaweah River).<br>
+              • MUST fill petrol before entering park &amp; carry snow chains.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> White Castle 2 nights NZD$1,881.67 (deposit $376.34 paid 3 Sep by Grace); Groceries, Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="seq">
+        <div class="day-header">
+          <span class="day-title">Thu 17 Dec — Full Hiking Day in Sequoia &amp; Kings Canyon</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Sequoia &amp; Kings Canyon NP</span>
+            <span class="tag tag-stay">Stay: White Castle Airbnb</span>
+            <span class="tag tag-special">🧺 Laundry Day</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Morning:</strong> Pack lunches &amp; enter park early with 2 National Park pass holders split across the 2 vehicles.</li>
+              <li><strong>Sequoia Highlights:</strong> Ash Mountain, Foothills Visitor Center, Giant Forest Museum, General Sherman Tree, Congress Trail, Moro Rock, Tunnel Log, Crescent Meadow, Tokopah Falls, Beetle Rock.</li>
+              <li><strong>Kings Canyon Option:</strong> Big Stump, Grant Grove, Boyden Cavern, Zumwalt Meadow, Mist Falls.</li>
+              <li><strong>Evening:</strong> Group dinner prep, laundry, and fireplace story time (HSFY results released in NZ on Dec 18 NZT).</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Download offline Gaia GPS / AllTrails maps beforehand.<br>
+              • Dress in thermal base layers, down puffer jacket, waterproof outer, wool socks &amp; hiking boots (temps -5°C to 8°C).
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> 2× America the Beautiful Annual Passes (USD$250 each / NZD$893–$912 total); Optional snowshoe tour USD$150/hr per group of 8.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="seq train">
+        <div class="day-header">
+          <span class="day-title">Fri 18 Dec — Return to LA (Cerritos) &amp; Home Meeting</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Three Rivers → Bakersfield → Cerritos</span>
+            <span class="tag tag-stay">Stay: Cerritos Hall (Bros) / Hospitality (Sis)</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Before 11:00 AM:</strong> Check out of White Castle Airbnb &amp; depart southbound (240 miles, 4–7 hrs depending on Friday LA traffic).</li>
+              <li><strong>Lunch:</strong> Stop at The Park at River Walk in Bakersfield (optional stop: Outlets at Tejon).</li>
+              <li><strong>07:00 PM:</strong> Home meeting in Cerritos (Children's meeting split into 2 Chinese groups &amp; 5 English groups; Henry serves Chinese children).</li>
+              <li><strong>Night:</strong> Drop sisters at Cerritos hospitality families; brothers sleep at Cerritos Meeting Hall (bedding provided).</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • <strong>Cerritos Meeting Hall:</strong> 12061 Del Amo Blvd, Cerritos, CA 90703.<br>
+              • Laundry Day available.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Petrol, Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="train">
+        <div class="day-header">
+          <span class="day-title">Sat 19 Dec — FTTA Graduation &amp; Blending with Singapore Saints</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Anaheim &amp; Cerritos</span>
+            <span class="tag tag-stay">Stay: Cerritos Hall / Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Morning:</strong> Breakfast at meeting hall; attend <strong>FTTA Graduation</strong> in Anaheim (09:30 AM – 11:00 AM).</li>
+              <li><strong>Lunch:</strong> Anaheim Packing House or The Outlets at Orange.</li>
+              <li><strong>Evening:</strong> Dinner &amp; blending fellowship with visiting saints from Singapore at Cerritos Meeting Hall.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Rest, do laundry, and prepare spiritually/practically for the Semiannual Training starting Monday.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Lunch &amp; Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="train">
+        <div class="day-header">
+          <span class="day-title">Sun 20 Dec – Sat 26 Dec — LSM Semiannual Training Week</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Cerritos &amp; Anaheim (Grace Garden)</span>
+            <span class="tag tag-stay">Stay: Grace Gardens / Cerritos Hospitality</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Sun 20 Dec:</strong> Breakfast at hall, Lord's Table &amp; Love Feast at Church in Cerritos (reports from localities). Trainees check into <strong>Grace Gardens</strong>; Henry, Grace &amp; Michelle move to Cerritos hospitality families.</li>
+              <li><strong>Mon 21 Dec:</strong> Return <strong>Jeep Wrangler before 1:30 PM</strong>. Semiannual Training begins in the afternoon.</li>
+              <li><strong>Tue 22 Dec – Sat 26 Dec:</strong> Full-day Semiannual Training sessions in Anaheim.</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Ford Transit remains with Henry, Grace &amp; Michelle for daily Cerritos–Anaheim commutes.<br>
+              • Lunches covered during training love feasts; budget USD$25/day for dinners.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Training registration USD$205 (NZD$365–$374, paid in Oct); Dinners ~USD$25/day.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card" data-leg="train">
+        <div class="day-header">
+          <span class="day-title">Sun 27 Dec – Tue 29 Dec — Final Lord's Table, LAX Departure &amp; NZ Arrival</span>
+          <div class="day-tags">
+            <span class="tag tag-loc">Anaheim → LAX → AKL / HKG / KUL</span>
+            <span class="tag tag-stay">Homeward Bound</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="day-col">
+            <h4>Activities &amp; Flow</h4>
+            <ul>
+              <li><strong>Sun 27 Dec Morning:</strong> Lord's Table in Anaheim; last-minute shopping at Outlets at Orange &amp; Trader Joe's.</li>
+              <li><strong>05:30 PM:</strong> Depart for LAX in Ford Transit (9 passengers); refuel van and return to rental center.</li>
+              <li><strong>22:00 – 23:50 PM:</strong> Depart LAX (Shermin KE012 at 22:00; NZ group QF3194 at 23:35; Matthew DAL87 at 23:50).</li>
+              <li><strong>Mon 28 Dec:</strong> In flight across International Date Line.</li>
+              <li><strong>Tue 29 Dec:</strong> Land in Auckland at 09:55 AM (QF3194).</li>
+            </ul>
+          </div>
+          <div class="day-col">
+            <h4>Logistics, Notes &amp; Costs</h4>
+            <div class="notes-box">
+              • Thomas, Crystal &amp; Lindsay arrange separate transport.<br>
+              • Brian &amp; Branden stay at 1032 N Doria St, Anaheim (Dec 27–29) before flying DL0065 on Dec 29.
+            </div>
+            <div class="cost-strip">
+              <strong>Costs:</strong> Final fuel fill-up, Lunch &amp; Airport Dinner.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TAB 2: FLIGHTS & WEATHER -->
+  <section id="flights" class="tab-panel">
+    <div class="section-header">
+      <h2>Flight Matrix &amp; December Climate</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>🌤️ San Diego (Dec 10–12)</h3>
+        <p style="font-size:1.5rem; font-weight:800; color:var(--primary);">9°C – 18°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(48°F – 64°F)</span></p>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:0.35rem;">Crisp mornings, mild sunny afternoons. Bring light layers &amp; disposable ponchos for SeaWorld.</p>
+      </div>
+      <div class="card">
+        <h3>☀️ Los Angeles (Dec 13–15, 18–27)</h3>
+        <p style="font-size:1.5rem; font-weight:800; color:var(--primary);">8°C – 19°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(46°F – 66°F)</span></p>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:0.35rem;">Cool evenings, pleasant daytime highs. Layer up for outdoor evening events and ice skating.</p>
+      </div>
+      <div class="card" style="border-color:#93c5fd; background:#eff6ff;">
+        <h3>❄️ Sequoia NP (Dec 16–18)</h3>
+        <p style="font-size:1.5rem; font-weight:800; color:#1d4ed8;">-5°C – 8°C <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">(23°F – 46°F)</span></p>
+        <p style="font-size:0.86rem; color:#1e3a8a; margin-top:0.35rem;"><strong>Sub-zero freezing conditions!</strong> Snow chains, thermal base layers, puffer jacket &amp; waterproof boots mandatory.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:1.25rem 0 0.65rem; color:var(--primary);">🛫 Outbound Flights (Arriving into LAX)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Traveler</th>
+            <th>Flight</th>
+            <th>Depart</th>
+            <th>Depart Date &amp; Time</th>
+            <th>Arrive</th>
+            <th>Arrival Date &amp; Time</th>
+            <th>LAX Ground Transfer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Brian Lee</strong></td><td>DL0064</td><td>AKL</td><td>09 Dec · 14:45</td><td>LAX (T-B)</td><td>09 Dec · 06:05</td><td>Self-arranged (9th); joins group 10th</td></tr>
+          <tr><td><strong>Branden Lee</strong></td><td>DL0064</td><td>AKL</td><td>09 Dec · 14:45</td><td>LAX (T-B)</td><td>09 Dec · 06:05</td><td>Self-arranged (9th); joins group 10th</td></tr>
+          <tr><td><strong>Henry Liu</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Grace Chen</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Caleb Liu</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Ezra Liu</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Ezekiel Sterling</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Enoch Hii</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Tim Lam</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Shermin Tan</strong></td><td>QF3157</td><td>AKL</td><td>10 Dec · 15:50</td><td>LAX (T-B)</td><td>10 Dec · 07:10</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Matthew Man</strong></td><td>DAL88</td><td>HKG</td><td>10 Dec · 10:45</td><td>LAX (T-B)</td><td>10 Dec · 07:55</td><td>Ford Transit (12-seater)</td></tr>
+          <tr><td><strong>Thomas Chiang</strong></td><td>WN4152</td><td>SJC</td><td>10 Dec · 11:00</td><td>LAX (T-1)</td><td>10 Dec · 12:25</td><td>Jeep Wrangler (5-seater)</td></tr>
+          <tr><td><strong>Crystal Chiang</strong></td><td>WN4152</td><td>SJC</td><td>10 Dec · 11:00</td><td>LAX (T-1)</td><td>10 Dec · 12:25</td><td>Jeep Wrangler (5-seater)</td></tr>
+          <tr><td><strong>Michelle Lee</strong></td><td>JX002</td><td>TPE</td><td>11 Dec · 23:40</td><td>LAX</td><td>11 Dec · 19:05</td><td>Self-arranged transfer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:1.25rem 0 0.65rem; color:var(--primary);">🛬 Return Flights (Departing USA)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Traveler</th>
+            <th>Flight</th>
+            <th>Depart</th>
+            <th>Depart Date &amp; Time</th>
+            <th>Arrive</th>
+            <th>Arrival Date &amp; Time</th>
+            <th>Airport Drop-Off</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Shermin Tan</strong></td><td>KE012</td><td>LAX (T-B)</td><td>27 Dec · 22:00</td><td>KUL (via ICN)</td><td>29 Dec · 04:20</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Henry Liu</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Grace Chen</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Caleb Liu</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Ezra Liu</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Ezekiel Sterling</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Enoch Hii</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Tim Lam</strong></td><td>QF3194</td><td>LAX (T-4/B)</td><td>27 Dec · 23:35</td><td>AKL</td><td>29 Dec · 09:55</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Matthew Man</strong></td><td>DAL87</td><td>LAX (T-3)</td><td>27 Dec · 23:50</td><td>HKG</td><td>29 Dec · 07:40</td><td>Ford Transit (5:30 PM run)</td></tr>
+          <tr><td><strong>Brian Lee</strong></td><td>DL0065</td><td>LAX (T-3)</td><td>29 Dec · 22:50</td><td>AKL</td><td>31 Dec · 08:55</td><td>Self-arranged</td></tr>
+          <tr><td><strong>Branden Lee</strong></td><td>DL0065</td><td>LAX (T-3)</td><td>29 Dec · 22:50</td><td>AKL</td><td>31 Dec · 08:55</td><td>Self-arranged</td></tr>
+          <tr><td><strong>Thomas Chiang</strong></td><td>JX11</td><td>SFO</td><td>03 Jan · 23:10</td><td>TPE</td><td>05 Jan · 05:15</td><td>Self-arranged</td></tr>
+          <tr><td><strong>Crystal Chiang</strong></td><td>JX11</td><td>SFO</td><td>03 Jan · 23:10</td><td>TPE</td><td>06 Jan · 05:15</td><td>Self-arranged</td></tr>
+          <tr><td><strong>Michelle Lee</strong></td><td>DL065</td><td>LAX</td><td>04 Jan · 22:50</td><td>AKL</td><td>06 Jan · 08:55</td><td>Self-arranged</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 3: ACCOMMODATION & FLEET -->
+  <section id="stay" class="tab-panel">
+    <div class="section-header">
+      <h2>Nightly Accommodation Matrix &amp; Vehicle Fleet</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dates</th>
+            <th>Region</th>
+            <th>Lodging Type &amp; Address</th>
+            <th>Room / Host Allocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Wed 9 Dec</strong></td>
+            <td>Anaheim, CA</td>
+            <td>Private Accommodation<br><code>1032 N Doria St, Anaheim, CA 92801</code></td>
+            <td>Brian Lee &amp; Branden Lee (early arrival night).</td>
+          </tr>
+          <tr>
+            <td><strong>Thu 10 – Sat 12 Dec</strong><br>(3 Nights)</td>
+            <td>Vista / San Marcos</td>
+            <td>Hospitality Families<br>Church in Vista: <code>150-B Hannalei Dr., Vista, CA 92083</code></td>
+            <td>Full group hosted by local saints in Vista &amp; San Marcos.</td>
+          </tr>
+          <tr>
+            <td><strong>Sun 13 – Tue 15 Dec</strong><br>(3 Nights)</td>
+            <td>Los Angeles (UCLA)</td>
+            <td>Hospitality Families (via Brother Stephen)</td>
+            <td>Full group hosted by saints in UCLA / West LA area.</td>
+          </tr>
+          <tr>
+            <td><strong>Wed 16 – Thu 17 Dec</strong><br>(2 Nights)</td>
+            <td>Sequoia National Park</td>
+            <td><strong>White Castle Airbnb</strong> (Sleeps 16, 4 Bed / 2.5 Bath)<br><code>43574 Dinely Dr, Three Rivers, CA 93271</code></td>
+            <td>
+              • <strong>Master (King):</strong> Henry Liu, Caleb Liu, Ezra Liu (floor mattress)<br>
+              • <strong>Room 2 (King + Air Mattress):</strong> Ezekiel Sterling, Enoch Hii, Tim Lam<br>
+              • <strong>Room 3 (2 Queens):</strong> Matthew Man, Thomas Chiang, Brian Lee, Branden Lee<br>
+              • <strong>Room 4 (Bunk + Twins):</strong> Grace Chen, Michelle Lee (bunk), Shermin Tan, Crystal Chiang (twins)
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Fri 18 – Sat 19 Dec</strong><br>(2 Nights)</td>
+            <td>Cerritos, CA</td>
+            <td>Meeting Hall &amp; Hospitality<br><code>12061 Del Amo Blvd, Cerritos, CA 90703</code></td>
+            <td>
+              • <strong>Brothers:</strong> Sleep at Cerritos Meeting Hall (bedding provided).<br>
+              • <strong>Sisters:</strong> Stay with Cerritos hospitality families.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Sun 20 – Sat 26 Dec</strong><br>(7 Nights)</td>
+            <td>Anaheim / Cerritos</td>
+            <td>FTTA Grace Gardens &amp; Cerritos Hospitality</td>
+            <td>
+              • <strong>Training Registrants:</strong> FTTA Grace Gardens campus apartments.<br>
+              • <strong>Henry, Grace &amp; Michelle:</strong> Cerritos hospitality families.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Sun 27 – Mon 28 Dec</strong></td>
+            <td>In Transit / Anaheim</td>
+            <td>Overnight Flights / Anaheim</td>
+            <td>Main group in air; Brian &amp; Branden at <code>1032 N Doria St, Anaheim</code> until Dec 29.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>🚐 Primary Vehicle: Ford Transit 12-Seater <span class="status-yes">Booked (18 Days)</span></h3>
+        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (10:00 AM) – Sun 27 Dec (Evening at LAX)</p>
+        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Cost:</strong> NZD$3,383.00 (incl. insurance, prepaid by Henry Liu on 17 Oct)</p>
+        <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
+          <li><strong>Drivers:</strong> Henry Liu, Matthew Man, Thomas Chiang</li>
+          <li><strong>Dec 10–20:</strong> Carries primary group across San Diego, LA, Sequoia &amp; Cerritos.</li>
+          <li><strong>Dec 21–26:</strong> Used by Henry, Grace &amp; Michelle for daily Cerritos commutes.</li>
+          <li><strong>Dec 27:</strong> Transports 9 departing saints to LAX at 5:30 PM.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🚙 Support Vehicle: Jeep Wrangler 5-Seater <span class="status-yes">Booked (11 Days)</span></h3>
+        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Rental Window:</strong> Thu 10 Dec (12:30 PM) – Mon 21 Dec (Before 1:30 PM)</p>
+        <p style="font-size:0.9rem; margin-bottom:0.5rem;"><strong>Cost:</strong> NZD$1,072.00 (prepaid by Thomas Chiang on 4 Nov)</p>
+        <ul style="padding-left:1.2rem; font-size:0.88rem; color:var(--text-muted);">
+          <li><strong>Purpose:</strong> Luggage overflow &amp; split-group flexibility (especially Sequoia NP &amp; Lakers Game).</li>
+          <li><strong>Sequoia Rule:</strong> Must carry one of the two National Park Annual Passes and snow chains.</li>
+          <li><strong>Quotes Evaluated Earlier:</strong> Mercedes-Benz Metris (NZD$2,952), Kia Carnival Hybrid (NZD$2,937), Chevy Express (NZD$3,377).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: BUDGET & FOOD -->
+  <section id="budget" class="tab-panel">
+    <div class="section-header">
+      <h2>Trip Budget &amp; Daily Food Plan</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>1️⃣ Pre-Trip Individual Costs</h3>
+        <p style="font-size:1.45rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">~NZD $487.00 <span style="font-size:0.8rem; font-weight:500;">(excl. flights/ins.)</span></p>
+        <table>
+          <tbody>
+            <tr><td>ESTA Authorization</td><td><strong>NZD $72.00</strong> (USD $40.27)</td></tr>
+            <tr><td>US eSIM (Nomad 20GB)</td><td><strong>NZD $50.00</strong></td></tr>
+            <tr><td>LSM Training Fee</td><td><strong>NZD $365.00</strong> (USD $205)</td></tr>
+            <tr><td>Flight Tickets (est.)</td><td>~NZD $2,000.00</td></tr>
+            <tr><td>Travel Insurance (est.)</td><td>NZD $400 – $600</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>2️⃣ Shared Group Fund (14 Pax)</h3>
+        <p style="font-size:1.45rem; font-weight:800; color:var(--teal); margin-bottom:0.5rem;">NZD $952.14 / person <span style="font-size:0.8rem; font-weight:500;">($13,330 total)</span></p>
+        <table>
+          <tbody>
+            <tr><td>Ford Transit (18d)</td><td><strong>NZD $3,383.00</strong> (Henry)</td></tr>
+            <tr><td>Jeep Wrangler (11d)</td><td><strong>NZD $1,072.00</strong> (Thomas)</td></tr>
+            <tr><td>White Castle Airbnb</td><td><strong>NZD $1,881.67</strong> (Grace)</td></tr>
+            <tr><td>SeaWorld (13 tix + dining)</td><td><strong>NZD $3,000.00</strong></td></tr>
+            <tr><td>Petrol (~2,900 miles)</td><td><strong>NZD $1,100 – $2,000</strong></td></tr>
+            <tr><td>2× US Park Annual Passes</td><td><strong>NZD $893 – $912</strong></td></tr>
+            <tr><td>Shared Food &amp; Love Feasts</td><td><strong>NZD $800.00</strong></td></tr>
+            <tr><td>Parking &amp; Host Gifts</td><td><strong>NZD $250 – $300</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>3️⃣ Recommended Pocket Money</h3>
+        <p style="font-size:1.45rem; font-weight:800; color:var(--accent); margin-bottom:0.5rem;">NZD $1,000.00 / person</p>
+        <table>
+          <tbody>
+            <tr><td>Daily Meals (18 days)</td><td><strong>NZD $700.00</strong> (~USD $520)</td></tr>
+            <tr><td>Extra Attractions</td><td><strong>NZD $100.00</strong></td></tr>
+            <tr><td>Souvenirs</td><td><strong>NZD $50.00</strong></td></tr>
+            <tr><td>Spiritual Books</td><td><strong>NZD $50.00</strong></td></tr>
+            <tr><td>Contingency / Other</td><td><strong>NZD $100.00</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3 style="margin:1.25rem 0 0.65rem; color:var(--primary);">🍽️ Daily Per-Person Meal Budget Breakdown (USD $520 Total)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Meal</th>
+            <th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th><th>24</th><th>25</th><th>26</th><th>27</th>
+            <th>Total (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Breakfast</strong></td>
+            <td>$15</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$5</td><td>$5</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            <td><strong>$25</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Lunch</strong></td>
+            <td>$20–25</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>$10</td><td>$10</td><td>$25</td><td>$25</td><td>$25</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$25</td>
+            <td><strong>$270</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Dinner</strong></td>
+            <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$30</td><td>$0</td><td>$10</td><td>$10</td><td>$25</td><td>$0</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>$25</td><td>—</td>
+            <td><strong>$225</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:1.25rem 0 0.65rem; color:var(--primary);">🎟️ Sightseeing &amp; Activity Price Reference</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Attraction / Activity</th><th>USD</th><th>NZD (Est.)</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>California Science Center</td><td>Free</td><td>Free</td><td>Exposition Park (Mon 14 Dec)</td></tr>
+          <tr><td>Natural History Museum of LA</td><td>$18–$25</td><td>~$32.82</td><td>Student rate available (bring Student ID)</td></tr>
+          <tr><td>Lucas Museum of Narrative Art</td><td>$25.00</td><td>~$45.59</td><td>Closed Tuesdays</td></tr>
+          <tr><td>Santa Monica Cruiser Bike Rental</td><td>$25.00/day</td><td>~$45.59</td><td>E-Bike: USD$70 / NZD$127.65 per day</td></tr>
+          <tr><td>Irvine Spectrum Ice Skating</td><td>$27.00</td><td>~$49.23</td><td>Includes skate hire (Sun 13 Dec, 2–9:30 PM)</td></tr>
+          <tr><td>Museum of Illusions</td><td>$20–$35</td><td>~$63.82</td><td>Optional LA activity</td></tr>
+          <tr><td>USS Midway Museum</td><td>$39.00</td><td>~$71.12</td><td>Online special rate (Sat 12 Dec)</td></tr>
+          <tr><td>San Diego SeaWorld</td><td>$60.00+</td><td>~$109.41+</td><td>Date-specific; group dining bundle arranged</td></tr>
+          <tr><td>Balboa Park Multi-Museum Pass</td><td>$60–$78</td><td>~$109–$138</td><td>Or individual museums ($7–$30 each)</td></tr>
+          <tr><td>Lakers Game Ticket</td><td>$60.00+</td><td>~$109.41+</td><td>Mon 14 Dec at Crypto.com Arena</td></tr>
+          <tr><td>San Diego Zoo</td><td>$78.00</td><td>~$142.23</td><td>Includes double-decker bus &amp; sky tram</td></tr>
+          <tr><td>Universal Studios Hollywood</td><td>$99–$100</td><td>~$182.35</td><td>Optional LA alternative</td></tr>
+          <tr><td>Disneyland California</td><td>$190.00</td><td>~$346.47</td><td>Optional Tue 15 Dec alternative</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 5: TEAM, ROLES & HEALTH -->
+  <section id="team" class="tab-panel">
+    <div class="section-header">
+      <h2>Participant Directory, Assigned Roles &amp; Medical Alerts</h2>
+      <input type="text" class="search-input" id="teamSearch" placeholder="Search name, role, or allergy..." onkeyup="filterTeam()">
+    </div>
+
+    <div class="callout-banner">
+      <strong>⚠️ Critical Medical &amp; Allergy Alerts:</strong>
+      <ul style="margin-top:0.35rem; padding-left:1.25rem;">
+        <li><strong>Enoch Hii:</strong> <strong>SEVERE</strong> allergy to <strong>Peanuts, Tree nuts, Ibuprofen, Penicillin, and Bee/Insect stings</strong> (Mild: dust mites, pollen, animal fur).</li>
+        <li><strong>Caleb Liu:</strong> <strong>SEVERE</strong> allergy to <strong>All nuts</strong> (Mild: hay fever).</li>
+        <li><strong>First Aid Leads:</strong> Ezekiel Sterling (3rd Yr Med) &amp; Enoch Hii (2nd Yr Pharmacy).</li>
+      </ul>
+    </div>
+
+    <div class="table-wrap">
+      <table id="teamTable">
+        <thead>
+          <tr>
+            <th>Preferred Name</th>
+            <th>Legal Full Name</th>
+            <th>DOB (Age)</th>
+            <th>Occupation / Study</th>
+            <th>Assigned Trip Roles</th>
+            <th>Allergies / Medical</th>
+            <th>Contact Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Henry</strong></td>
+            <td>Hung-jui Liu</td>
+            <td>24 Mar 1974 (52)</td>
+            <td>High School Math Teacher</td>
+            <td>Primary Driver, Cerritos Chinese children service</td>
+            <td>None</td>
+            <td>+64 21 171 1455<br>hhjliu2020@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Grace</strong></td>
+            <td>Shu-hsin Chen</td>
+            <td>04 Aug 1975 (51)</td>
+            <td>Mother / Serving One</td>
+            <td>Logistics &amp; Catering Coordinator</td>
+            <td><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td>+64 21 258 4776<br>graceliu365@yahoo.com</td>
+          </tr>
+          <tr>
+            <td><strong>Matthew</strong></td>
+            <td>Chung Yin Man</td>
+            <td>17 Jan 1994 (32)</td>
+            <td>Full-time Serving Brother</td>
+            <td>Driver, Communication, Ministry reading keeper</td>
+            <td>None</td>
+            <td>+64 22 037 5022<br>matthewmcy1994@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Thomas</strong></td>
+            <td>Yao-Chieh Chiang</td>
+            <td>09 Oct 1998 (28)</td>
+            <td>Full-time Serving Brother</td>
+            <td>Driver, Group Fund Treasurer, Church liaison</td>
+            <td>None</td>
+            <td>+64 21 0813 2755<br>t.chiang1009@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Tim</strong></td>
+            <td>Tim Lam</td>
+            <td>~1993 (33)</td>
+            <td>Serving Brother (Hamilton)</td>
+            <td>Serving one, Vehicle navigator</td>
+            <td>None</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Michelle</strong></td>
+            <td>Michelle Lee</td>
+            <td>~1994 (32)</td>
+            <td>Veterinarian</td>
+            <td>ESTA &amp; travel insurance reminder coordinator</td>
+            <td>None</td>
+            <td>+64 21 236 4777</td>
+          </tr>
+          <tr>
+            <td><strong>Ezekiel</strong></td>
+            <td>Ezekiel Sterling</td>
+            <td>30 May 2006 (20)</td>
+            <td>3rd Year Medicine</td>
+            <td>First Aid Lead, Gift card organizer</td>
+            <td>None</td>
+            <td>+64 27 497 4989<br>ezekielksterlingwk@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Brian</strong></td>
+            <td>Hansung Lee</td>
+            <td>08 Aug 2006 (20)</td>
+            <td>BCom/BSc Stats &amp; CompSci</td>
+            <td>Weather Reporter</td>
+            <td>None</td>
+            <td>+64 21 278 8869<br>brianhansunglee670@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Branden</strong></td>
+            <td>Hanju Lee</td>
+            <td>12 Nov 2008 (18)</td>
+            <td>High School Graduate / Uni</td>
+            <td>Logistics Assistant</td>
+            <td>None</td>
+            <td>+64 21 278 8846<br>brandenhjlee@hotmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Enoch</strong></td>
+            <td>Enoch Hii</td>
+            <td>10 Dec 2006 (20)</td>
+            <td>2nd Year Pharmacy</td>
+            <td>First Aid Lead, Gift card organizer</td>
+            <td><span class="allergy-severe">SEVERE: Peanuts, Tree nuts, Ibuprofen, Penicillin, Bee stings</span><br><span class="allergy-mild">Mild: Dust, pollen, fur</span></td>
+            <td>+64 22 300 7862<br>Enochxu1012@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Caleb</strong></td>
+            <td>Caleb Liu</td>
+            <td>29 May 2007 (19)</td>
+            <td>Health Science First Year (HSFY)</td>
+            <td>Daily logistics, daily reminders &amp; timekeeper</td>
+            <td><span class="allergy-severe">SEVERE: All nuts</span><br><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td>+64 22 106 3692<br>calebliu2020@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Ezra</strong></td>
+            <td>Ezra Liu</td>
+            <td>06 Oct 2008 (18)</td>
+            <td>Health Science First Year (HSFY)</td>
+            <td>Road Navigator (routes &amp; avoiding toll roads)</td>
+            <td><span class="allergy-mild">Mild: Cat fur, hay fever</span></td>
+            <td>+64 22 471 6950<br>ezraliu2020@gamil.com</td>
+          </tr>
+          <tr>
+            <td><strong>Crystal</strong></td>
+            <td>Qi-An Chiang</td>
+            <td>05 Sep 2007 (19)</td>
+            <td>Health Science First Year (HSFY)</td>
+            <td>Website designer, Gift organizer</td>
+            <td><span class="allergy-mild">Mild: Hay fever</span></td>
+            <td>+64 21 0806 7775<br>bluerivercrystal@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Shermin</strong></td>
+            <td>Sher Min Tan</td>
+            <td>05 Apr 2003 (23)</td>
+            <td>BCom Finance &amp; Accounting</td>
+            <td>Website designer, Gift organizer</td>
+            <td>None</td>
+            <td>+64 27 491 4588<br>tanshermin0504@gmail.com</td>
+          </tr>
+          <tr>
+            <td><strong>Gazelle</strong></td>
+            <td>Ka Hie Gazelle Lee</td>
+            <td>12 Apr 2006 (20)</td>
+            <td>University Student</td>
+            <td>Training registrant</td>
+            <td>None</td>
+            <td>+64 21 165 3041<br>gazellekhlee@gmail.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TAB 6: PACKING & TASKS -->
+  <section id="prep" class="tab-panel">
+    <div class="section-header">
+      <h2>Interactive Packing Checklist &amp; Coordinator Action Items</h2>
+    </div>
+
+    <div class="callout-info">
+      <strong>🚫 Do NOT Pack These Items:</strong> Sleeping bags, pillows, and hair dryers are already provided at accommodations—save luggage space!
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>🎒 Carry-On Bag Checklist</h3>
+        <div id="carryOnList">
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Passport &amp; physical paper copies</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Credit Cards / Wise Travel Debit Card</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Physical travel insurance policy printout</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>University / High School Student ID (for museum discounts)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>New Zealand Driver's Licence (Henry, Matthew, Thomas)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Personal Bible &amp; hardcopy ministry reading materials</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Beanie, sunhat &amp; sunglasses</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Empty refillable water flask (fill past security)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>First aid kit &amp; personal prescription medications / EpiPens</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Facial tissues, wet wipes &amp; hand sanitiser</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Breath mints / throat lozenges</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Power banks, charging cables &amp; US universal travel adapters</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Laptop, AirPods &amp; stationery/pens</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🧳 Checked Luggage Checklist</h3>
+        <div id="checkedList">
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Meeting clothes (white dress shirts, ties) &amp; formal shoes</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Casual wear &amp; comfortable daily walking shoes</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Sturdy hiking boots &amp; woollen hiking socks (Sequoia)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Thermal tops and leggings (base layers for -5°C Sequoia)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Heavy down puffer jacket &amp; waterproof rain jacket</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Disposable rain ponchos (for SeaWorld splash zones)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Hiking poles (Henry)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Reusable cutlery set &amp; collapsible meal container</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Skincare, toiletries &amp; personal hair styling tools</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Laundry pods &amp; mesh laundry wash bags</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>Mini sewing kit &amp; safety scissors (checked bag only!)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"><span>New Zealand hospitality host gifts &amp; thank-you cards</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>🛒 Bookings &amp; Purchases</h3>
+        <ul style="padding-left:1.2rem; font-size:0.88rem;">
+          <li>✅ 2 Rental Cars booked (Ford Transit &amp; Jeep Wrangler)</li>
+          <li>Buy US eSIM cards prior to departure (do NOT buy at LAX)</li>
+          <li>Submit group ESTAs ≥72 hours before departure</li>
+          <li>Purchase SeaWorld tickets with dining passes</li>
+          <li>Purchase USS Midway online tickets</li>
+          <li>Confirm Lakers tickets (7 seats for Dec 14)</li>
+          <li>Buy 2× digital America the Beautiful Passes ($250 ea on recreation.gov)</li>
+          <li>Prepare 3 lots of NZ gifts &amp; thank-you cards for hosts</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🤝 US Church Fellowship</h3>
+        <ul style="padding-left:1.2rem; font-size:0.88rem;">
+          <li>Confirm Brian &amp; Branden's Anaheim stay (Dec 9 &amp; Dec 27–28)</li>
+          <li>Confirm Michelle's LA hospitality (Dec 11–13)</li>
+          <li>Confirm Vista hospitality assignments (Dec 10–12)</li>
+          <li>Coordinate UCLA hospitality with Brother Stephen (Dec 13–15)</li>
+          <li>Confirm Cerritos hospitality (Dec 18–19) &amp; Training week hosts</li>
+          <li>Coordinate Dec 19 dinner &amp; blending with Singapore saints</li>
+          <li>Confirm Lord's Table locations (Dec 20 &amp; Dec 27)</li>
+          <li>Coordinate LSM campus tour with Brother Shay &amp; Acaciawood visit with William</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🔍 Safety &amp; Logistics Checks</h3>
+        <ul style="padding-left:1.2rem; font-size:0.88rem;">
+          <li>Verify CA DMV rules for NZ driver's licences</li>
+          <li>Check rental agency snow chain policies &amp; winter tire ratings</li>
+          <li>Prepare rainy-day backup plans for Southern California</li>
+          <li>Confirm exact FTTA graduation start time (Sat 19 Dec)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  2026 December California Blending Trip &amp; Conference · Generated from Trip Planning Spreadsheet
+</footer>
+
+<script>
+  function openTab(tabId, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function filterDays(leg, btn) {
+    document.querySelectorAll('.filter-pills .pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.day-card').forEach(card => {
+      if (leg === 'all' || card.dataset.leg.includes(leg)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleCheck(checkbox) {
+    const label = checkbox.closest('.check-item');
+    if (checkbox.checked) {
+      label.classList.add('checked');
+    } else {
+      label.classList.remove('checked');
+    }
+  }
+
+  function filterTeam() {
+    const q = document.getElementById('teamSearch').value.toLowerCase();
+    document.querySelectorAll('#teamTable tbody tr').forEach(row => {
+      row.style.display = row.innerText.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+
+<script>
+  const STORAGE_KEY = "ca_blending_2026_editable_v1";
+  let isEditing = false;
+
+  const editableSelectors = [
+    "header.hero h1", "header.hero p.subtitle", ".stat-card .stat-val", ".stat-card .stat-lbl",
+    ".section-header h2", ".day-title", ".day-col li", ".notes-box", ".cost-strip",
+    ".card h3", ".card p", "#teamTable td", "#teamTable th",
+    ".callout-banner", ".callout-info", "footer"
+  ];
+
+  function applyEditableState(enable) {
+    isEditing = enable;
+    const btn = document.getElementById("toggleEditBtn");
+    const status = document.getElementById("editStatusText");
+    document.querySelectorAll(editableSelectors.join(",")).forEach(el => {
+      el.contentEditable = enable ? "true" : "false";
+      el.style.outline = enable ? "1px dashed rgba(14, 165, 233, 0.55)" : "";
+      el.style.borderRadius = enable ? "4px" : "";
+    });
+    if (enable) {
+      btn.textContent = "Done Editing";
+      btn.style.background = "#16a34a";
+      status.textContent = "Editing ON — click any text, schedule item, table cell, or note to edit directly.";
+    } else {
+      btn.textContent = "Enable Editing";
+      btn.style.background = "#0284c7";
+      status.textContent = "Viewing mode";
+      saveChangesToBrowser(true);
+    }
+  }
+
+  function toggleEditMode() {
+    applyEditableState(!isEditing);
+  }
+
+  function saveChangesToBrowser(silent = false) {
+    const data = {};
+    document.querySelectorAll(editableSelectors.join(",")).forEach((el, idx) => {
+      data[idx] = el.innerHTML;
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    if (!silent) {
+      document.getElementById("editStatusText").textContent = "Saved changes locally in this browser.";
+    }
+  }
+
+  function restoreChangesFromBrowser() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    try {
+      const data = JSON.parse(raw);
+      document.querySelectorAll(editableSelectors.join(",")).forEach((el, idx) => {
+        if (Object.prototype.hasOwnProperty.call(data, idx)) {
+          el.innerHTML = data[idx];
+        }
+      });
+    } catch (e) {}
+  }
+
+  function resetSavedChanges() {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+
+  function downloadUpdatedHtml() {
+    saveChangesToBrowser(true);
+    const clone = document.documentElement.cloneNode(true);
+    clone.querySelectorAll("[contenteditable]").forEach(el => {
+      el.removeAttribute("contenteditable");
+      el.style.outline = "";
+      el.style.borderRadius = "";
+    });
+    const htmlStr = "<!DOCTYPE html>\n" + clone.outerHTML;
+    const blob = new Blob([htmlStr], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "california_blending_trip_2026_edited.html";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  window.addEventListener("DOMContentLoaded", restoreChangesFromBrowser);
+</script>
+
+</body>
+</html>
